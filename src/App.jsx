@@ -6,6 +6,7 @@ import Nav from './components/Nav';
 
 import Home from './components/Home';
 import Articles from './components/Articles';
+import ArticlesSingle from './components/Articles-Single';
 import Users from './components/Users';
 
 import './App.css';
@@ -18,8 +19,9 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Articles" element={<Articles />} />
-        <Route path="/Users" element={<Users />} />
+        <Route path="/articles" element={<Articles />} />
+        <Route path="/articles/:article_id" element={<ArticlesSingle />} />
+        <Route path="/users" element={<Users />} />
       </Routes>
     </div>
   )

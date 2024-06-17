@@ -1,0 +1,20 @@
+import { Link } from "react-router-dom";
+
+const ArticlesListCards = ( { article }) => {
+
+    return (
+        <li key={article.article_id}>
+            <Link to={`/articles/${article.article_id}`}>
+                <button className="Content__list-card">
+                    <h3>{article.title}</h3>
+                    {article.topic}
+                    <img src={article.article_img_url} />
+                    {article.author}
+                    <h3>{article.votes}</h3>
+                </button>
+            </Link>
+        </li>
+    );
+}
+
+export default ArticlesListCards

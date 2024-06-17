@@ -12,12 +12,12 @@ const Nav = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/Articles">
+                        <Link to="/articles">
                             <button className="Nav__button">Articles</button>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/Users">
+                        <Link to="/users">
                             <button className="Nav__button">Users</button>
                         </Link>
                     </li>
