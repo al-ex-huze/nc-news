@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
-
 import { TiCancel } from "react-icons/ti";
-
+import { UserContext } from "../contexts/User-Context";
 import { postArticleComment } from "../api";
 
 const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
     const { article_id } = useParams();
+
+    const { userLoggedIn, setUserLoggedIn } = useContext(UserContext);
 
     const [usernameInput, setUsernameInput] = useState("");
     const [bodyInput, setBodyInput] = useState("");
@@ -18,7 +19,7 @@ const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
         event.preventDefault();
         setIsPosting(true);
         const newComment = {
-            username: usernameInput,
+            username: userLoggedIn.username,
             body: bodyInput,
         };
         postArticleComment(newComment, article_id)
@@ -32,7 +33,7 @@ const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
             setIsPosting(false);
         })
         .catch((error) => {
-            setError("Post Unsuccessful - Try Refreshing the Page");
+            setError(" Post Unsuccessful - Try Refreshing the Page ");
         });
     };
 
@@ -43,23 +44,14 @@ const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
                 <h3>Add New Comment</h3>
                 <ul>
                     <li>
-                        <label>
-                            Username 
-                            <input
-                                required
-                                value={usernameInput}
-                                onChange={(event) => {
-                                    setUsernameInput(event.target.value);
-                                }}
-                            />
-                        </label>
+                        Logged in as {userLoggedIn.username}
                     </li>
                     <li>
                         <label>
-                            Comment 
                             <input
                                 className="Content__comment-input"
                                 required
+                                placeholder="Type comment..."
                                 value={bodyInput}
                                 onChange={(event) => {
                                     setBodyInput(event.target.value);

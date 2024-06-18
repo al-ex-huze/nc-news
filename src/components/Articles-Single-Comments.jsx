@@ -31,6 +31,7 @@ const ArticlesSingleComments = ( { articleComments, setArticleComments } ) => {
                         <ArticlesSingleCommentsCards
                             comment={comment}
                             key={comment.comment_id}
+
                         />
                     );
                 })}
