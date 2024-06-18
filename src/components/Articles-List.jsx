@@ -8,7 +8,6 @@ const ArticlesList = ({ articles, setArticles }) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // console.log("Articles-Effect");
         setIsLoading(true);
         getArticles()
             .then(({ articles }) => {

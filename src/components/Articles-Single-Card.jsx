@@ -14,7 +14,6 @@ const ArticlesSingleCard = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // console.log("Articles-Single-Effect")
         setIsLoading(true);
         getArticleById(article_id)
             .then((article) => {
