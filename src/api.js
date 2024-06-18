@@ -46,7 +46,7 @@ export const postArticleComment = ( body, article_id ) => {
 export const deleteArticleComment = ( comment_id ) => {
     return newsApi
     .delete(`/api/comments/${comment_id}`)
-    .then((response => {
-        return true;
-    }))
+    .then((response) => {
+        return response.status === 204 ? true : false;
+    })
 }
