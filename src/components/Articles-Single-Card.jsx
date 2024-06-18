@@ -26,29 +26,26 @@ const ArticlesSingleCard = () => {
             });
     }, [article_id]);
 
-
     const handleDownVote = () => {
         setOptimisticVotes(optimisticVotes - 1);
         setError(null);
-        patchArticleVotes(-1, singleArticle.article_id)
-        .catch((error) => {
+        patchArticleVotes(-1, singleArticle.article_id).catch((error) => {
             setOptimisticVotes(singleArticle.votes);
-            setError("Vote Not Registered - Try Refreshing Page");
+            setError("Vote Not Registered - Try Refreshing the Page");
         });
     };
     const handleUpVote = () => {
         setOptimisticVotes(optimisticVotes + 1);
         setError(null);
-        patchArticleVotes(1, singleArticle.article_id)
-        .catch((error) => {
+        patchArticleVotes(1, singleArticle.article_id).catch((error) => {
             setOptimisticVotes(singleArticle.votes);
-            setError("Vote Not Registered - Try Refreshing Page");
+            setError("Vote Not Registered - Try Refreshing the Page");
         });
     };
 
     if (isLoading) return <p>Loading Article</p>;
     return (
-        <div className="Content__Single-card">
+        <div className="Content__single-card">
             <h3>{singleArticle.title}</h3>
             <button>
                 <h3>By {singleArticle.author}</h3>
@@ -59,17 +56,24 @@ const ArticlesSingleCard = () => {
             <p>{singleArticle.body}</p>
             <img src={singleArticle.article_img_url} />
             <h3>{singleArticle.created_at}</h3>
-            <button onClick={handleDownVote}>
-                <TiThumbsDown />
-            </button>
-            <button>{optimisticVotes} Votes</button>
-            <button onClick={handleUpVote}>
-                <TiThumbsUp />
-            </button>
-            {error ? <p><TiCancel /> {error} <TiCancel /></p> : null}
+            <div className="Content__micro-card-container">
+                <button onClick={handleDownVote}>
+                    <TiThumbsDown />
+                </button>
+                <div className="Content__micro-card">
+                    {optimisticVotes} Votes
+                </div>
+                <button onClick={handleUpVote}>
+                    <TiThumbsUp />
+                </button>
+            </div>
+            {error ? (
+                <p>
+                    <TiCancel /> {error} <TiCancel />
+                </p>
+            ) : null}
         </div>
     );
 };
 
 export default ArticlesSingleCard;
-;

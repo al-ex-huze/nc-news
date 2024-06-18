@@ -1,8 +1,12 @@
+import { useState } from "react";
+
 import ArticlesSidebar from "./Articles-Sidebar";
 import ArticlesSingleCard from "./Articles-Single-Card";
 import ArticlesSingleComments from "./Articles-Single-Comments";
+import ArticlesSingleAddComment from "./Articles-Single-Add-Comment";
 
 const ArticlesSingle = () => {
+    const [articleComments, setArticleComments] = useState([]);
 
     return (
         <>
@@ -11,10 +15,17 @@ const ArticlesSingle = () => {
             </div>
             <div className="Content">
                 <ArticlesSingleCard />
-                <ArticlesSingleComments />
+                <ArticlesSingleAddComment
+                    articleComments={articleComments}
+                    setArticleComments={setArticleComments}
+                />
+                <ArticlesSingleComments
+                    articleComments={articleComments}
+                    setArticleComments={setArticleComments}
+                />
             </div>
         </>
-    )
-}
+    );
+};
 
 export default ArticlesSingle;

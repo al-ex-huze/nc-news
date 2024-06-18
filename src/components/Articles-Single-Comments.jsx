@@ -5,9 +5,9 @@ import ArticlesSingleCommentsCards from "./Articles-Single-Comments-Cards";
 
 import { getCommentsByArticleId } from "../api";
 
-const ArticlesSingleComments = () => {
+const ArticlesSingleComments = ( { articleComments, setArticleComments } ) => {
     const { article_id } = useParams();
-    const [articleComments, setArticleComments] = useState([]);
+    
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -24,8 +24,8 @@ const ArticlesSingleComments = () => {
 
     if (isLoading) return <p>Loading Comments</p>;
     return (
-        <div className="Content__Single-comments-cards">
-            <ul>
+        <>
+            <ul className="Content__comments">
                 {articleComments.map((comment) => {
                     return (
                         <ArticlesSingleCommentsCards
@@ -35,7 +35,7 @@ const ArticlesSingleComments = () => {
                     );
                 })}
             </ul>
-        </div>
+        </>
     );
 };
 
