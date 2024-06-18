@@ -4,15 +4,20 @@ import ArticlesList from "./Articles-List";
 import ArticlesSidebar from "./Articles-Sidebar";
 
 const Articles = () => {
-    const [articles, setArticles] = useState([]);    
+    const [articles, setArticles] = useState([]);
+    const [topicFilter, setTopicFilter] = useState("");
 
     return (
         <>
             <div className="Sidebar">
-                <ArticlesSidebar />
+                <ArticlesSidebar setTopicFilter={setTopicFilter} />
             </div>
             <div className="Content">
-                <ArticlesList articles={articles} setArticles={setArticles} />
+                <ArticlesList
+                    topicFilter={topicFilter}
+                    articles={articles}
+                    setArticles={setArticles}
+                />
             </div>
         </>
     );

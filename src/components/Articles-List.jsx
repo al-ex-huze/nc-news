@@ -4,12 +4,12 @@ import ArticlesListCards from "./Articles-List-Cards";
 
 import { getArticles } from "../api";
 
-const ArticlesList = ({ articles, setArticles }) => {
+const ArticlesList = ({ topicFilter, articles, setArticles }) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsLoading(true);
-        getArticles()
+        getArticles(topicFilter)
             .then(({ articles }) => {
                 setArticles(articles);
                 setIsLoading(false);
@@ -17,7 +17,7 @@ const ArticlesList = ({ articles, setArticles }) => {
             .catch((error) => {
                 console.log(error);
             });
-    }, []);
+    }, [topicFilter]);
 
     if (isLoading) return <p>Loading Articles</p>;
     return (
