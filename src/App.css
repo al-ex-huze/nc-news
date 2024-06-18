@@ -103,6 +103,7 @@ a {
   font-family: inherit;
   background-color: #1a1a1a;
 }
+
 .Content__single-comment-card ul {
 
   background-color: #242424;
@@ -112,6 +113,7 @@ a {
   display: flex;
   justify-content: center;
 }
+
 .Content__micro-card {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -120,6 +122,11 @@ a {
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
+}
+
+.Content__delete-button-container {
+  display: flex;
+  justify-content: end;
 }
 
 .Content__comment-form {

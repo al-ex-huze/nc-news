@@ -1,8 +1,6 @@
 import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
-
 import { TiCancel } from "react-icons/ti";
-
 import { UserContext } from "../contexts/User-Context";
 import { postArticleComment } from "../api";
 
@@ -11,6 +9,7 @@ const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
 
     const { userLoggedIn, setUserLoggedIn } = useContext(UserContext);
 
+    const [usernameInput, setUsernameInput] = useState("");
     const [bodyInput, setBodyInput] = useState("");
 
     const [isPosting, setIsPosting] = useState(false);
@@ -20,7 +19,7 @@ const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
         event.preventDefault();
         setIsPosting(true);
         const newComment = {
-            username: usernameInput,
+            username: userLoggedIn.username,
             body: bodyInput,
         };
         postArticleComment(newComment, article_id)
@@ -34,7 +33,7 @@ const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
             setIsPosting(false);
         })
         .catch((error) => {
-            setError("Post Unsuccessful - Try Refreshing the Page");
+            setError(" Post Unsuccessful - Try Refreshing the Page ");
         });
     };
 
