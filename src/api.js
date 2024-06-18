@@ -50,3 +50,11 @@ export const deleteArticleComment = ( comment_id ) => {
         return response.status === 204 ? true : false;
     })
 }
+
+export const getTopics = () => {
+    return newsApi
+    .get("/api/topics")
+    .then((response) => {
+        return response.data.topics;
+    })
+}
