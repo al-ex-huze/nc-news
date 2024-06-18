@@ -46,15 +46,7 @@ export const postArticleComment = ( body, article_id ) => {
 export const deleteArticleComment = ( comment_id ) => {
     return newsApi
     .delete(`/api/comments/${comment_id}`)
-    .then((response => {
-        return true;
-    }))
-}
-
-export const getTopics = () => {
-    return newsApi
-    .get("/api/topics")
     .then((response) => {
-        return response.data.topics;
+        return response.status === 204 ? true : false;
     })
 }
