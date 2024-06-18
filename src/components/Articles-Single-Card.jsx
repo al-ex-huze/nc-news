@@ -60,8 +60,8 @@ const ArticlesSingleCard = () => {
             <button>
                 <h3>In {singleArticle.topic}</h3>
             </button>
-            <p>{singleArticle.body}</p>
             <img src={singleArticle.article_img_url} />
+            <p>{singleArticle.body}</p>
             <h3>{singleArticle.created_at}</h3>
             <div className="Content__micro-card-container">
                 <button onClick={handleDownVote}>
