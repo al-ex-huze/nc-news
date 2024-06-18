@@ -31,7 +31,7 @@ const ArticlesSingleCard = () => {
         setError(null);
         patchArticleVotes(-1, singleArticle.article_id).catch((error) => {
             setOptimisticVotes(singleArticle.votes);
-            setError("Vote Not Registered - Try Refreshing the Page");
+            setError(" Vote Not Registered - Something Went Wrong ");
         });
     };
     const handleUpVote = () => {
@@ -39,7 +39,7 @@ const ArticlesSingleCard = () => {
         setError(null);
         patchArticleVotes(1, singleArticle.article_id).catch((error) => {
             setOptimisticVotes(singleArticle.votes);
-            setError("Vote Not Registered - Try Refreshing the Page");
+            setError(" Vote Not Registered - Something Went Wrong ");
         });
     };
 
