@@ -33,7 +33,7 @@ const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
             setIsPosting(false);
         })
         .catch((error) => {
-            setError(" Post Unsuccessful - Try Refreshing the Page ");
+            setError(" Post Unsuccessful - Something Went Wrong ");
         });
     };
 
