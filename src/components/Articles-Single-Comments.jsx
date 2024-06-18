@@ -11,7 +11,7 @@ const ArticlesSingleComments = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        console.log("Single-Comments-Effect");
+        // console.log("Single-Comments-Effect");
         setIsLoading(true);
         getCommentsByArticleId(article_id)
             .then((comments) => {
