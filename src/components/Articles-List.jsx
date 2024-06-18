@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
+import { getArticles } from "../api";
 
 import ArticlesListCards from "./Articles-List-Cards";
-
-import { getArticles } from "../api";
 
 const ArticlesList = ({ topicFilter, articles, setArticles }) => {
     const [isLoading, setIsLoading] = useState(true);

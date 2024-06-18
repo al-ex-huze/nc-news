@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getTopics } from "../api";
 
-const ArticlesSidebar = ({ topicFilter, setTopicFilter }) => {
+const ArticlesSidebar = ({ setTopicFilter }) => {
     const [topics, setTopics] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -21,21 +22,27 @@ const ArticlesSidebar = ({ topicFilter, setTopicFilter }) => {
     return (
         <>
             <ul>
-            <button
-                                className="Sidebar_button"
-                                onClick={() => setTopicFilter("")}
-                            >
-                                all
-                            </button>
+                <li>
+                    <Link to="/articles/">
+                        <button
+                            className="Sidebar_button"
+                            onClick={() => setTopicFilter("")}
+                        >
+                            All
+                        </button>
+                    </Link>
+                </li>
                 {topics.map((topic) => {
                     return (
                         <li key={topic.slug}>
+                            <Link to={`/articles/${topic.slug}`}>
                             <button
                                 className="Sidebar_button"
                                 onClick={() => setTopicFilter(topic.slug)}
                             >
-                                {topic.slug}
+                                {topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}
                             </button>
+                            </Link>
                         </li>
                     );
                 })}
