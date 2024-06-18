@@ -32,6 +32,7 @@ export const patchArticleVotes = ( inc_votes, article_id ) => {
     return newsApi
     .patch(`/api/articles/${article_id}`, { inc_votes: inc_votes })
     .then((response) => {
+        return response.status === 200 ? true : false;
     })
 }
 
