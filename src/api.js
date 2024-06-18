@@ -50,3 +50,11 @@ export const deleteArticleComment = ( comment_id ) => {
         return true;
     }))
 }
+
+export const getTopics = () => {
+    return newsApi
+    .get("/api/topics")
+    .then((response) => {
+        return response.data.topics;
+    })
+}

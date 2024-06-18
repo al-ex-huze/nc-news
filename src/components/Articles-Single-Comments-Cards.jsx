@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { TiCancel, TiTrash } from "react-icons/ti";
 import { UserContext } from "../contexts/User-Context";
 import { deleteArticleComment } from "../api";
-import { GiConsoleController } from "react-icons/gi";
 
 const ArticlesSingleCommentsCards = ({ comment }) => {
     const { userLoggedIn, setUserLoggedIn } = useContext(UserContext);
