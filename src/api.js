@@ -34,3 +34,11 @@ export const patchArticleVotes = ( inc_votes, article_id ) => {
     .then((response) => {
     })
 }
+
+export const postArticleComment = ( body, article_id ) => {
+    return newsApi
+    .post(`/api/articles/${article_id}/comments`, body)
+    .then((response) => {
+        return response.data.comment;
+    })
+}

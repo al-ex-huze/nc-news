@@ -78,7 +78,7 @@ a {
   height: auto;
 }
 
-.Content__Single-card {
+.Content__single-card {
   margin: 1px;
   border-radius: 8px;
   border: 1px solid transparent;
@@ -89,7 +89,40 @@ a {
   background-color: #1a1a1a;
 }
 
-.Content__Single-comment-card {
+.Content__comments {
+  margin: 0;
+}
+
+.Content__single-comment-card {
+  margin: 2px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+}
+.Content__single-comment-card ul {
+
+  background-color: #242424;
+}
+
+.Content__micro-card-container {
+  display: flex;
+  justify-content: center;
+}
+.Content__micro-card {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+}
+
+.Content__comment-form {
   margin: 1px;
   border-radius: 8px;
   border: 1px solid transparent;
