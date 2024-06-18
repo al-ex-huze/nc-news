@@ -1,202 +1,202 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0;
-  text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
 }
 
 a {
-  text-decoration: none
+    text-decoration: none;
 }
 
 .Header {
-  grid-area: Header;
-  width: 100%;
+    grid-area: Header;
+    width: 100%;
 }
 
 .Nav {
-  grid-area: Nav;
-  width: 100%;
+    grid-area: Nav;
+    width: 100%;
 }
 
 .Nav ul {
-  height: 100%;
-  display: flex;
-  list-style-type: none;
-  padding: 0;
+    height: 100%;
+    display: flex;
+    list-style-type: none;
+    padding: 0;
 }
 
 .Nav li {
-  width: 100%;
-  text-decoration: none;
+    width: 100%;
+    text-decoration: none;
 }
 
 .Nav__button {
-  white-space: nowrap;
-  text-align: center;
-  width: 100%;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
 }
 
 .Sidebar {
-  grid-area: Sidebar;
-  width: 100%;
+    grid-area: Sidebar;
+    width: 100%;
 }
 
 .Sidebar ul {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;  
-  list-style-type: none;
-  padding: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
 }
 
 .Sidebar li {
-  margin: 1px;;
-  text-decoration: none;
-  align-items: center;
-  width: 100%;}
+    margin: 1px;
+    text-decoration: none;
+    align-items: center;
+    width: 100%;
+}
 
 .Sidebar_button {
-  width: 100%;
+    width: 100%;
 }
 
 .Content {
-  grid-area: Content;
-  box-sizing: border-box;
-  width: 100%;
+    grid-area: Content;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .Content ul {
-  width: 100%;  
-  list-style-type: none;
-  padding: 0;
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
 }
 
 .Content li {
-  margin: 1px;;
-  text-decoration: none;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
+    margin: 1px;
+    text-decoration: none;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .Content li img {
-  width: 128px;
-  height: 128px;
-  object-fit: cover;
-  border-radius: 50%;
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .Content__list-card {
-  width: 100%;
+    width: 100%;
 }
 
 .Content img {
-  width: 256px;
-  height: auto;
+    width: 256px;
+    height: auto;
 }
 
 .Content__single-card {
-  margin: 1px;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+    margin: 1px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
 }
 
 .Content__comments {
-  margin: 0;
+    margin: 0;
 }
 
 .Content__single-comment-card {
-  margin: 2px;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+    margin: 2px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
 }
 
 .Content__single-comment-card ul {
-
-  background-color: #242424;
+    background-color: #242424;
 }
 
 .Content__micro-card-container {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .Content__micro-card {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
 }
 
 .Content__delete-button-container {
-  display: flex;
-  justify-content: end;
+    display: flex;
+    justify-content: end;
 }
 
 .Content__comment-form {
-  margin: 1px;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+    margin: 1px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
 }
 
 .App {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 25% 75%;
-  grid-template-rows: min-content auto auto;
-  grid-template-areas:
-      "Header Nav"
-      "Sidebar Sidebar"
-      "Content Content"
+    width: 100%;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: min-content auto auto;
+    grid-template-areas:
+        "Header Nav"
+        "Sidebar Sidebar"
+        "Content Content";
 }
 
 @media only screen and (min-width: 768px) {
-  .App {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 25% 75%;
-      grid-template-rows: auto;
-      grid-template-areas:
-          "Header Header"
-          "Nav Nav"
-          "Sidebar Content"
-  }
-  .Content li img {
-    width: 256px;
-    height: 256px;
-    object-fit: cover;
-    border-radius: 50%;
-  }
+    .App {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 25% 75%;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "Header Header"
+            "Nav Nav"
+            "Sidebar Content";
+    }
+    .Content li img {
+        width: 256px;
+        height: 256px;
+        object-fit: cover;
+        border-radius: 50%;
+    }
 
-  .Content img {
-    width: 512px;
-    height: auto;
-  }
+    .Content img {
+        width: 512px;
+        height: auto;
+    }
 
-  .Sidebar ul {
-    display: block;
-    justify-content: space-around;
-    width: 100%;  
-    list-style-type: none;
-    padding: 0;
-  }
+    .Sidebar ul {
+        display: block;
+        justify-content: space-around;
+        width: 100%;
+        list-style-type: none;
+        padding: 0;
+    }
 }

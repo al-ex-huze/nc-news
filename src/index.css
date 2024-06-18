@@ -47,6 +47,8 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
+  /* text-shadow: 0 0 7px #646cff, 0 0 10px #646cff, 0 0 21px #646cff;
+  box-shadow: 0 7px #646cff, 0 0 10px #646cff, 0 0 21px #646cff; */
   border-color: #646cff;
 }
 button:focus,
