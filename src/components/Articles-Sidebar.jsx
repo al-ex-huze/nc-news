@@ -36,7 +36,10 @@ const ArticlesSidebar = ({ setTopicFilter }) => {
                     return (
                         <li key={topic.slug}>
                             <Link to={`/articles/?topic=${topic.slug}`}>
-                                <button className="Sidebar_button">
+                                <button
+                                    className="Sidebar_button"
+                                    onClick={() => setTopicFilter(topic.slug)}
+                                >
                                     {topic.slug.charAt(0).toUpperCase() +
                                         topic.slug.slice(1)}
                                 </button>
