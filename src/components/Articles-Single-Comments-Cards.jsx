@@ -1,4 +1,3 @@
-
 const ArticlesSingleCommentsCards = ( { comment }) => {
 
     return (

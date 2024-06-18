@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const newsApi = axios.create({
-    baseURL : "https://nc-huze-news.onrender.com/"
+    baseURL : "https://nc-huze-news.onrender.com"
 })
 
 export const getArticles = () => {
@@ -25,5 +25,12 @@ export const getCommentsByArticleId = ( article_id ) => {
     .get(`/api/articles/${article_id}/comments`)
     .then((response) => {
         return response.data.comments;
+    })
+}
+
+export const patchArticleVotes = ( inc_votes, article_id ) => {
+    return newsApi
+    .patch(`/api/articles/${article_id}`, { inc_votes: inc_votes })
+    .then((response) => {
     })
 }
