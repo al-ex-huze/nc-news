@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import ArticlesList from "./Articles-List";
@@ -9,6 +9,10 @@ const Articles = () => {
     const topicQuery = searchParams.get("topic");
     const [articles, setArticles] = useState([]);
     const [topicFilter, setTopicFilter] = useState(topicQuery);
+
+    useEffect(() => {
+        setTopicFilter(topicQuery);
+    }, [topicQuery])
 
     return (
         <>
