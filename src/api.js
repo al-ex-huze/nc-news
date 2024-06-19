@@ -4,9 +4,11 @@ const newsApi = axios.create({
     baseURL: "https://nc-huze-news.onrender.com",
 });
 
-export const getArticles = (topicFilter) => {
+export const getArticles = (topicFilter, sortByQuery, sortByIsDesc) => {
+    let orderDirection = "";
+    sortByIsDesc ? orderDirection = "desc" : orderDirection = "asc";
     return newsApi
-        .get("/api/articles", { params: { topic: topicFilter } })
+        .get("/api/articles", { params: { topic: topicFilter, sort_by: sortByQuery, order: orderDirection } })
         .then((response) => {
             return response.data;
         });

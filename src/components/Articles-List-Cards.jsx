@@ -7,6 +7,7 @@ const ArticlesListCards = ( { article }) => {
             <Link to={`/articles/${article.article_id}`}>
                 <button className="Content__list-card">
                     <h3>{article.title}</h3>
+                    <h3>{article.created_at}</h3>
                     {article.topic}
                     <img src={article.article_img_url} />
                     {article.author}

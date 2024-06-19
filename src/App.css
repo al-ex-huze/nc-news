@@ -57,9 +57,19 @@ a {
     width: 100%;
 }
 
-.Sidebar_button {
+.Sidebar__button {
     width: 100%;
 }
+
+.Sidebar__sort-by {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Sidebar__query-button {
+    width: 100%;
+}
+
 
 .Content {
     grid-area: Content;

@@ -3,12 +3,12 @@ import { getArticles } from "../api";
 
 import ArticlesListCards from "./Articles-List-Cards";
 
-const ArticlesList = ({ topicFilter, articles, setArticles }) => {
+const ArticlesList = ({ topicFilter, articles, setArticles, sortByQuery, sortByIsDesc }) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsLoading(true);
-        getArticles(topicFilter)
+        getArticles(topicFilter, sortByQuery, sortByIsDesc)
             .then(({ articles }) => {
                 setArticles(articles);
                 setIsLoading(false);
@@ -16,7 +16,7 @@ const ArticlesList = ({ topicFilter, articles, setArticles }) => {
             .catch((error) => {
                 console.log(error);
             });
-    }, [topicFilter]);
+    }, [topicFilter, sortByQuery, sortByIsDesc]);
 
     if (isLoading) return <p>Loading Articles</p>;
     return (

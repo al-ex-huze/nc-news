@@ -10,14 +10,22 @@ const Articles = () => {
     const [articles, setArticles] = useState([]);
     const [topicFilter, setTopicFilter] = useState(topicQuery);
 
+    const [sortByQuery, setSortByQuery] = useState("");
+    const [sortByIsDesc, setSortByIsDesc] = useState(false);
+
     useEffect(() => {
         setTopicFilter(topicQuery);
-    }, [topicQuery])
+    }, [topicQuery]);
 
     return (
         <>
             <div className="Sidebar">
-                <ArticlesSidebar setTopicFilter={setTopicFilter} />
+                <ArticlesSidebar
+                    setTopicFilter={setTopicFilter}
+                    setSortByQuery={setSortByQuery}
+                    sortByIsDesc={sortByIsDesc}
+                    setSortByIsDesc={setSortByIsDesc}
+                />
             </div>
             <div className="Content">
                 <ArticlesList
@@ -25,6 +33,8 @@ const Articles = () => {
                     setTopicFilter={setTopicFilter}
                     articles={articles}
                     setArticles={setArticles}
+                    sortByQuery={sortByQuery}
+                    sortByIsDesc={sortByIsDesc}
                 />
             </div>
         </>
