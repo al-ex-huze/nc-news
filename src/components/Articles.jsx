@@ -7,8 +7,8 @@ import ArticlesSidebar from "./Articles-Sidebar";
 const Articles = ({ showSortBy, setShowSortBy }) => {
     const [searchParams, setSearchParams] = useSearchParams();
     const topicQuery = searchParams.get("topic");
+    
     const [articles, setArticles] = useState([]);
-
     const [topicFilter, setTopicFilter] = useState(topicQuery);
     const [sortByQuery, setSortByQuery] = useState("");
     const [sortByIsDesc, setSortByIsDesc] = useState(false);
@@ -18,6 +18,7 @@ const Articles = ({ showSortBy, setShowSortBy }) => {
     const [totalCount, setTotalCount] = useState(0);
 
     useEffect(() => {
+        setPageNumber(1);
         setTopicFilter(topicQuery);
     }, [topicQuery]);
 

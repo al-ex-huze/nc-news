@@ -10,6 +10,8 @@ import Articles from "./components/Articles";
 import ArticlesSingle from "./components/Articles-Single";
 import Users from "./components/Users";
 
+import RouteError from "./components/Route-Error";
+
 import "./App.css";
 
 function App() {
@@ -34,8 +36,9 @@ function App() {
                     path="/articles/:article_id"
                     element={<ArticlesSingle setShowSortBy={setShowSortBy} />}
                 />
-
                 <Route path="/users" element={<Users />} />
+
+                <Route path="*" element={<RouteError />} />
             </Routes>
         </div>
     );

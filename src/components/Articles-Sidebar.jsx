@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import ArticlesSidebarTopics from "./Articles-Sidebar-Topics";
 import ArticlesSidebarSort from "./Articles-Sidebar-Sort";
 
+import ErrorComponent from "./Error-Component";
+
 import { getTopics } from "../api";
 
 const ArticlesSidebar = ({
@@ -13,9 +15,10 @@ const ArticlesSidebar = ({
     setSortByIsDesc,
     showSortBy,
 }) => {
-    const [topics, setTopics] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [topicsError, setTopicsError] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);    
 
+    const [topics, setTopics] = useState([]);
     const [sortByArr, setSortByArr] = useState([
         "created_at",
         "comment_count",
@@ -30,10 +33,12 @@ const ArticlesSidebar = ({
                 setIsLoading(false);
             })
             .catch((error) => {
-                console.log(error);
+                console.log("DEBUG CATCH:" + error)
+                setTopicsError(error);
             });
     }, []);
 
+    if (topicsError) return <ErrorComponent error={topicsError} />
     if (isLoading) return <p>Loading Sidebar</p>;
     return (
         <>

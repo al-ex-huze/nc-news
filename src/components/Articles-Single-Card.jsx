@@ -4,13 +4,19 @@ import { TiThumbsDown, TiThumbsUp, TiCancel } from "react-icons/ti";
 import { UserContext } from "../contexts/User-Context";
 import { getArticleById, patchArticleVotes } from "../api";
 
+import ErrorComponent from "./Error-Component";
+
 const ArticlesSingleCard = ({ setShowSortBy }) => {
-    const { article_id } = useParams();
-    const [singleArticle, setSingleArticle] = useState([]);
+    const [singleArticleError, setSingleArticleError] = useState(null);
+    const [voteError, setVoteError] = useState(null);
+
     const [isLoading, setIsLoading] = useState(true);
+
     const { userLoggedIn, setUserLoggedIn } = useContext(UserContext);
+    const { article_id } = useParams();
+
+    const [singleArticle, setSingleArticle] = useState([]);
     const [optimisticVotes, setOptimisticVotes] = useState(0);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
         setIsLoading(true);
@@ -22,35 +28,36 @@ const ArticlesSingleCard = ({ setShowSortBy }) => {
                 setIsLoading(false);
             })
             .catch((error) => {
-                console.log(error);
+                setSingleArticleError(error);
             });
     }, [article_id]);
 
     const handleDownVote = () => {
         if (!userLoggedIn.votedOnArticle.includes(article_id)) {
             setOptimisticVotes(optimisticVotes - 1);
-            setError(null);
+            setVoteError(null);
             patchArticleVotes(-1, singleArticle.article_id)
                 .then(userLoggedIn.votedOnArticle.push(article_id))
                 .catch((error) => {
                     setOptimisticVotes(singleArticle.votes);
-                    setError(" Vote Not Registered - Something Went Wrong ");
+                    setVoteError(" Vote Not Registered - Something Went Wrong ");
                 });
         }
     };
     const handleUpVote = () => {
         if (!userLoggedIn.votedOnArticle.includes(article_id)) {
             setOptimisticVotes(optimisticVotes + 1);
-            setError(null);
+            setVoteError(null);
             patchArticleVotes(1, singleArticle.article_id)
                 .then(userLoggedIn.votedOnArticle.push(article_id))
                 .catch((error) => {
                     setOptimisticVotes(singleArticle.votes);
-                    setError(" Vote Not Registered - Something Went Wrong ");
+                    setVoteError(" Vote Not Registered - Something Went Wrong ");
                 });
         }
     };
 
+    if (singleArticleError) return <ErrorComponent error={singleArticleError} />
     if (isLoading) return <p>Loading Article</p>;
     return (
         <div className="Content__single-card">
@@ -75,9 +82,9 @@ const ArticlesSingleCard = ({ setShowSortBy }) => {
                     <TiThumbsUp />
                 </button>
             </div>
-            {error ? (
+            {voteError ? (
                 <p>
-                    <TiCancel /> {error} <TiCancel />
+                    <TiCancel /> {voteError} <TiCancel />
                 </p>
             ) : null}
         </div>
