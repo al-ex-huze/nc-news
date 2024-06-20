@@ -6,7 +6,7 @@ const ArticlesSidebarTopics = ({ setPageNumber, topics }) => {
             <div className="Sidebar__micro-card">Topics</div>
             <ul>
                 <li>
-                    <Link to="/articles/?topic=all">
+                    <Link to="/articles/">
                         <button className="Sidebar__button">All</button>
                     </Link>
                 </li>

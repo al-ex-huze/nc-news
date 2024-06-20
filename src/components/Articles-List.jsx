@@ -16,11 +16,13 @@ const ArticlesList = ({
     setTotalCount,
     sortByQuery,
     sortByIsDesc,
+    setShowSortBy,
 }) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsLoading(true);
+        setShowSortBy(true);
         getArticles(topicFilter, sortByQuery, sortByIsDesc, limit, pageNumber)
             .then(({ articles }) => {
                 setTotalCount(articles[0].total_count);

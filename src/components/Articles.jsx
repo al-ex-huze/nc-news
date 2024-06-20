@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import ArticlesList from "./Articles-List";
 import ArticlesSidebar from "./Articles-Sidebar";
 
-const Articles = () => {
+const Articles = ( { showSortBy, setShowSortBy } ) => {
     const [searchParams, setSearchParams] = useSearchParams();
     const topicQuery = searchParams.get("topic");
     const [articles, setArticles] = useState([]);
@@ -17,13 +17,9 @@ const Articles = () => {
     const [pageNumber, setPageNumber] = useState(1);
     const [totalCount, setTotalCount] = useState(0);
 
+
     useEffect(() => {
-        setPageNumber(1);
-        if (topicQuery === "all") {
-            setTopicFilter("");
-        } else {
-            setTopicFilter(topicQuery);
-        }
+        setTopicFilter(topicQuery);
     }, [topicQuery]);
 
     return (
@@ -37,6 +33,7 @@ const Articles = () => {
                     sortByIsDesc={sortByIsDesc}
                     setSortByIsDesc={setSortByIsDesc}
                     topicQuery={topicQuery}
+                    showSortBy={showSortBy}
                 />
             </div>
             <div className="Content">
@@ -52,6 +49,7 @@ const Articles = () => {
                     sortByIsDesc={sortByIsDesc}
                     totalCount={totalCount}
                     setTotalCount={setTotalCount}
+                    setShowSortBy={setShowSortBy}
                 />
             </div>
         </>

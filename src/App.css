@@ -14,7 +14,7 @@ a {
     width: 100%;
 }
 
-.Header__logo-main  {
+.Header__logo-main {
     margin-left: -2rem;
     width: 120%;
     height: auto;
@@ -50,7 +50,7 @@ a {
 }
 
 .Sidebar ul {
-    margin-top: 0;;
+    margin-top: 0;
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -92,7 +92,7 @@ a {
     grid-area: Content;
     box-sizing: border-box;
     width: 100%;
-    padding: 1em 0.6em;
+    padding: 0em 0.6em;
 }
 
 .Content ul {

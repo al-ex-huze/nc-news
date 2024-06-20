@@ -4,7 +4,7 @@ import { TiThumbsDown, TiThumbsUp, TiCancel } from "react-icons/ti";
 import { UserContext } from "../contexts/User-Context";
 import { getArticleById, patchArticleVotes } from "../api";
 
-const ArticlesSingleCard = () => {
+const ArticlesSingleCard = ( { setShowSortBy }) => {
     const { article_id } = useParams();
     const [singleArticle, setSingleArticle] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -14,6 +14,7 @@ const ArticlesSingleCard = () => {
 
     useEffect(() => {
         setIsLoading(true);
+        setShowSortBy(false);
         getArticleById(article_id)
             .then((article) => {
                 setSingleArticle(article);

@@ -4,7 +4,7 @@ import ArticlesSidebar from "./Articles-Sidebar";
 import ArticlesSingleCard from "./Articles-Single-Card";
 import ArticlesSingleComments from "./Articles-Single-Comments";
 
-const ArticlesSingle = () => {
+const ArticlesSingle = ( { setShowSortBy } ) => {
     const [articleComments, setArticleComments] = useState([]);
 
     const limit = 5;
@@ -17,7 +17,8 @@ const ArticlesSingle = () => {
                 <ArticlesSidebar />
             </div>
             <div className="Content">
-                <ArticlesSingleCard />
+                <ArticlesSingleCard 
+                setShowSortBy={setShowSortBy}/>
 
                 <ArticlesSingleComments
                     limit={limit}

@@ -4,11 +4,25 @@ const newsApi = axios.create({
     baseURL: "https://nc-huze-news.onrender.com",
 });
 
-export const getArticles = (topicFilter, sortByQuery, sortByIsDesc, limit, pageNumber) => {
+export const getArticles = (
+    topicFilter,
+    sortByQuery,
+    sortByIsDesc,
+    limit,
+    pageNumber
+) => {
     let orderDirection = "";
-    sortByIsDesc ? orderDirection = "desc" : orderDirection = "asc";
+    sortByIsDesc ? (orderDirection = "desc") : (orderDirection = "asc");
     return newsApi
-        .get("/api/articles", { params: { topic: topicFilter, sort_by: sortByQuery, order: orderDirection, limit: limit, p: pageNumber } })
+        .get("/api/articles", {
+            params: {
+                topic: topicFilter,
+                sort_by: sortByQuery,
+                order: orderDirection,
+                limit: limit,
+                p: pageNumber,
+            },
+        })
         .then((response) => {
             return response.data;
         });
@@ -22,7 +36,9 @@ export const getArticleById = (article_id) => {
 
 export const getCommentsByArticleId = (article_id, limit, pageNumber) => {
     return newsApi
-        .get(`/api/articles/${article_id}/comments`, { params: { limit: limit, p: pageNumber}})
+        .get(`/api/articles/${article_id}/comments`, {
+            params: { limit: limit, p: pageNumber },
+        })
         .then((response) => {
             return response.data.comments;
         });

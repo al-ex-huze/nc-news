@@ -12,6 +12,7 @@ const ArticlesSidebar = ({
     setSortByQuery,
     sortByIsDesc,
     setSortByIsDesc,
+    showSortBy,
     topicQuery,
 }) => {
     const [topics, setTopics] = useState([]);
@@ -42,7 +43,7 @@ const ArticlesSidebar = ({
                 setPageNumber={setPageNumber}
                 topics={topics}
             />
-            {topicQuery ? (
+            {showSortBy ? (
                 <ArticlesSidebarSort
                     sortByArr={sortByArr}
                     setSortByArr={setSortByArr}
