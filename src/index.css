@@ -7,6 +7,7 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
+  font-size: 0.75em;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -47,10 +48,9 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  /* text-shadow: 0 0 7px #646cff, 0 0 10px #646cff, 0 0 21px #646cff;
-  box-shadow: 0 7px #646cff, 0 0 10px #646cff, 0 0 21px #646cff; */
-  border-color: #646cff;
+  border-color: #ffffff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;

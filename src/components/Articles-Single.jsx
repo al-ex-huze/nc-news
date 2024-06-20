@@ -4,8 +4,12 @@ import ArticlesSidebar from "./Articles-Sidebar";
 import ArticlesSingleCard from "./Articles-Single-Card";
 import ArticlesSingleComments from "./Articles-Single-Comments";
 
-const ArticlesSingle = () => {
+const ArticlesSingle = ({ setShowSortBy }) => {
     const [articleComments, setArticleComments] = useState([]);
+
+    const limit = 5;
+    const [pageNumber, setPageNumber] = useState(1);
+    const [totalCount, setTotalCount] = useState(0);
 
     return (
         <>
@@ -13,9 +17,14 @@ const ArticlesSingle = () => {
                 <ArticlesSidebar />
             </div>
             <div className="Content">
-                <ArticlesSingleCard />
-                
+                <ArticlesSingleCard setShowSortBy={setShowSortBy} />
+
                 <ArticlesSingleComments
+                    limit={limit}
+                    pageNumber={pageNumber}
+                    setPageNumber={setPageNumber}
+                    totalCount={totalCount}
+                    setTotalCount={setTotalCount}
                     articleComments={articleComments}
                     setArticleComments={setArticleComments}
                 />

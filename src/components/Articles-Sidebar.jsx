@@ -1,10 +1,26 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+
+import ArticlesSidebarTopics from "./Articles-Sidebar-Topics";
+import ArticlesSidebarSort from "./Articles-Sidebar-Sort";
+
 import { getTopics } from "../api";
 
-const ArticlesSidebar = ({ setTopicFilter }) => {
+const ArticlesSidebar = ({
+    setPageNumber,
+    sortByQuery,
+    setSortByQuery,
+    sortByIsDesc,
+    setSortByIsDesc,
+    showSortBy,
+}) => {
     const [topics, setTopics] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
+    const [sortByArr, setSortByArr] = useState([
+        "created_at",
+        "comment_count",
+        "votes",
+    ]);
 
     useEffect(() => {
         setIsLoading(true);
@@ -18,28 +34,23 @@ const ArticlesSidebar = ({ setTopicFilter }) => {
             });
     }, []);
 
-    if (isLoading) return <p>Loading Topics</p>;
+    if (isLoading) return <p>Loading Sidebar</p>;
     return (
         <>
-            <ul>
-                <li>
-                    <Link to="/articles/">
-                        <button className="Sidebar_button">All</button>
-                    </Link>
-                </li>
-                {topics.map((topic) => {
-                    return (
-                        <li key={topic.slug}>
-                            <Link to={`/articles/?topic=${topic.slug}`}>
-                                <button className="Sidebar_button">
-                                    {topic.slug.charAt(0).toUpperCase() +
-                                        topic.slug.slice(1)}
-                                </button>
-                            </Link>
-                        </li>
-                    );
-                })}
-            </ul>
+            <ArticlesSidebarTopics
+                setPageNumber={setPageNumber}
+                topics={topics}
+            />
+            {showSortBy ? (
+                <ArticlesSidebarSort
+                    sortByArr={sortByArr}
+                    setSortByArr={setSortByArr}
+                    sortByIsDesc={sortByIsDesc}
+                    setSortByIsDesc={setSortByIsDesc}
+                    sortByQuery={sortByQuery}
+                    setSortByQuery={setSortByQuery}
+                />
+            ) : null}
         </>
     );
 };

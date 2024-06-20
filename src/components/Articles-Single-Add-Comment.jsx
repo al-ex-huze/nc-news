@@ -23,18 +23,18 @@ const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
             body: bodyInput,
         };
         postArticleComment(newComment, article_id)
-        .then((response) => {
-            setArticleComments((articleComments) => [
-                response,
-                ...articleComments,
-            ]);
-            setUsernameInput("");
-            setBodyInput("");
-            setIsPosting(false);
-        })
-        .catch((error) => {
-            setError(" Post Unsuccessful - Something Went Wrong ");
-        });
+            .then((response) => {
+                setArticleComments((articleComments) => [
+                    response,
+                    ...articleComments,
+                ]);
+                setUsernameInput("");
+                setBodyInput("");
+                setIsPosting(false);
+            })
+            .catch((error) => {
+                setError(" Post Unsuccessful - Something Went Wrong ");
+            });
     };
 
     if (isPosting) return <p>Please Wait</p>;
@@ -43,9 +43,7 @@ const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
             <form onSubmit={handleCommentSubmit}>
                 <h3>Add New Comment</h3>
                 <ul>
-                    <li>
-                        Logged in as {userLoggedIn.username}
-                    </li>
+                    <li>Logged in as {userLoggedIn.username}</li>
                     <li>
                         <label>
                             <input

@@ -14,6 +14,13 @@ a {
     width: 100%;
 }
 
+.Header__logo-main {
+    margin-left: -2rem;
+    width: 120%;
+    height: auto;
+    object-fit: cover;
+}
+
 .Nav {
     grid-area: Nav;
     width: 100%;
@@ -43,6 +50,7 @@ a {
 }
 
 .Sidebar ul {
+    margin-top: 0;
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -57,7 +65,26 @@ a {
     width: 100%;
 }
 
-.Sidebar_button {
+.Sidebar__micro-card {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+}
+
+.Sidebar__button {
+    width: 100%;
+}
+
+.Sidebar__sort-by {
+    display: flexbox;
+    justify-content: space-between;
+}
+
+.Sidebar__query-button {
     width: 100%;
 }
 
@@ -65,6 +92,7 @@ a {
     grid-area: Content;
     box-sizing: border-box;
     width: 100%;
+    padding: 0em 0.6em;
 }
 
 .Content ul {
@@ -88,7 +116,13 @@ a {
     border-radius: 50%;
 }
 
+.Content__list-cards ul {
+    width: 100%;
+    margin: 0;
+}
+
 .Content__list-card {
+    margin: 0;
     width: 100%;
 }
 
@@ -142,6 +176,34 @@ a {
     background-color: #1a1a1a;
 }
 
+.Content__pagination-container {
+    width: 100%;
+}
+
+.Content__pagination-container ul {
+    width: 100%;
+    display: flex;
+}
+
+.Content__pagination-container li {
+    width: 100%;
+}
+
+.Content__pagination-button {
+    width: 100%;
+    font-size: 115%;
+}
+
+.Content__pagination-micro-card {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+}
+
 .Content__delete-button-container {
     display: flex;
     justify-content: end;
@@ -171,6 +233,7 @@ a {
 
 @media only screen and (min-width: 768px) {
     .App {
+        font-size: 130%;
         width: 100%;
         display: grid;
         grid-template-columns: 25% 75%;
@@ -180,6 +243,12 @@ a {
             "Nav Nav"
             "Sidebar Content";
     }
+
+    .Header__logo-main {
+        margin-left: -10rem;
+        height: 256px;
+    }
+
     .Content li img {
         width: 256px;
         height: 256px;
