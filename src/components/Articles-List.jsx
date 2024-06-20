@@ -3,6 +3,8 @@ import { getArticles } from "../api";
 
 import { TiChevronLeftOutline, TiChevronRightOutline } from "react-icons/ti";
 
+import ErrorComponent from "./Error-Component";
+
 import ArticlesListCards from "./Articles-List-Cards";
 
 const ArticlesList = ({
@@ -18,6 +20,7 @@ const ArticlesList = ({
     sortByIsDesc,
     setShowSortBy,
 }) => {
+    const [listError, setListError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -30,7 +33,7 @@ const ArticlesList = ({
                 setIsLoading(false);
             })
             .catch((error) => {
-                console.log(error);
+                setListError(error);
             });
     }, [topicFilter, sortByQuery, sortByIsDesc, limit, pageNumber]);
 
@@ -42,6 +45,7 @@ const ArticlesList = ({
         if (pageNumber < totalCount / limit) setPageNumber(pageNumber + 1);
     };
 
+    if (listError) return <ErrorComponent error={listError} />;
     if (isLoading) return <p>Loading Articles</p>;
     return (
         <>

@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import ArticlesSingleAddComment from "./Articles-Single-Add-Comment";
 import ArticlesSingleCommentsCards from "./Articles-Single-Comments-Cards";
 
+import ErrorComponent from "./Error-Component";
+
 import { TiChevronLeftOutline, TiChevronRightOutline } from "react-icons/ti";
 
 import { getCommentsByArticleId } from "../api";
@@ -17,6 +19,7 @@ const ArticlesSingleComments = ({
     articleComments,
     setArticleComments,
 }) => {
+    const [commentsError, setCommentsError] = useState(null);
     const { article_id } = useParams();
 
     const [isLoading, setIsLoading] = useState(true);
@@ -32,7 +35,7 @@ const ArticlesSingleComments = ({
                 setIsLoading(false);
             })
             .catch((error) => {
-                console.log(error);
+                setCommentsError(error);
             });
     }, [limit, pageNumber]);
 
@@ -44,6 +47,7 @@ const ArticlesSingleComments = ({
         if (pageNumber < totalCount / limit) setPageNumber(pageNumber + 1);
     };
 
+    if (commentsError) return <ErrorComponent error={commentsError} />
     if (isLoading) return <p>Loading Comments</p>;
     if (articleComments.length === 0) return <p>No Comments Yet</p>;
     return (
