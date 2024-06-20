@@ -1,93 +1,3 @@
-#root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0;
-    text-align: center;
-}
-
-a {
-    text-decoration: none;
-}
-
-.Header {
-    grid-area: Header;
-    width: 100%;
-}
-
-.Header__logo-main {
-    margin-left: -2rem;
-    width: 120%;
-    height: auto;
-    object-fit: cover;
-}
-
-.Nav {
-    grid-area: Nav;
-    width: 100%;
-}
-
-.Nav ul {
-    height: 100%;
-    display: flex;
-    list-style-type: none;
-    padding: 0;
-}
-
-.Nav li {
-    width: 100%;
-    text-decoration: none;
-}
-
-.Nav__button {
-    white-space: nowrap;
-    text-align: center;
-    width: 100%;
-}
-
-.Sidebar {
-    grid-area: Sidebar;
-    width: 100%;
-}
-
-.Sidebar ul {
-    margin-top: 0;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    list-style-type: none;
-    padding: 0;
-}
-
-.Sidebar li {
-    margin: 1px;
-    text-decoration: none;
-    align-items: center;
-    width: 100%;
-}
-
-.Sidebar__micro-card {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
-}
-
-.Sidebar__button {
-    width: 100%;
-}
-
-.Sidebar__sort-by {
-    display: flexbox;
-    justify-content: space-between;
-}
-
-.Sidebar__query-button {
-    width: 100%;
-}
-
 .Content {
     grid-area: Content;
     box-sizing: border-box;
@@ -139,7 +49,7 @@ a {
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
+    background-color: #10141A;
 }
 
 .Content__comments {
@@ -154,11 +64,7 @@ a {
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
-}
-
-.Content__single-comment-card ul {
-    background-color: #242424;
+    background-color: #10141A;
 }
 
 .Content__micro-card-container {
@@ -173,7 +79,7 @@ a {
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
+    background-color: #10141A;
 }
 
 .Content__pagination-container {
@@ -197,11 +103,11 @@ a {
 .Content__pagination-micro-card {
     border-radius: 8px;
     border: 1px solid transparent;
-    padding: 0.6em 1.2em;
+    padding: 0.9em 1.2em;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
+    background-color: #10141A;
 }
 
 .Content__delete-button-container {
@@ -217,38 +123,10 @@ a {
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
-}
-
-.App {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 25% 75%;
-    grid-template-rows: min-content auto auto;
-    grid-template-areas:
-        "Header Nav"
-        "Sidebar Sidebar"
-        "Content Content";
+    background-color: #10141A;
 }
 
 @media only screen and (min-width: 768px) {
-    .App {
-        font-size: 130%;
-        width: 100%;
-        display: grid;
-        grid-template-columns: 25% 75%;
-        grid-template-rows: auto;
-        grid-template-areas:
-            "Header Header"
-            "Nav Nav"
-            "Sidebar Content";
-    }
-
-    .Header__logo-main {
-        margin-left: -10rem;
-        height: 256px;
-    }
-
     .Content li img {
         width: 256px;
         height: 256px;
@@ -259,13 +137,5 @@ a {
     .Content img {
         width: 512px;
         height: auto;
-    }
-
-    .Sidebar ul {
-        display: block;
-        justify-content: space-around;
-        width: 100%;
-        list-style-type: none;
-        padding: 0;
     }
 }

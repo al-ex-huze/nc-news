@@ -1,0 +1,53 @@
+.Sidebar {
+    grid-area: Sidebar;
+    width: 100%;
+}
+
+.Sidebar ul {
+    margin-top: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+}
+
+.Sidebar li {
+    margin: 1px;
+    text-decoration: none;
+    align-items: center;
+    width: 100%;
+}
+
+.Sidebar__micro-card {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #10141A
+}
+
+.Sidebar__button {
+    width: 100%;
+}
+
+.Sidebar__sort-by {
+    display: flexbox;
+    justify-content: space-between;
+}
+
+.Sidebar__query-button {
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    .Sidebar ul {
+        display: block;
+        justify-content: space-around;
+        width: 100%;
+        list-style-type: none;
+        padding: 0;
+    }
+}

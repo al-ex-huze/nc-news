@@ -12,7 +12,11 @@ import Users from "./components/Users";
 
 import RouteError from "./components/Route-Error";
 
-import "./App.css";
+import "../src/styles/App.css";
+import "../src/styles/Header.css";
+import "../src/styles/Nav.css";
+import "../src/styles/Sidebar.css";
+import "../src/styles/Content.css";
 
 function App() {
     const [showSortBy, setShowSortBy] = useState(false);

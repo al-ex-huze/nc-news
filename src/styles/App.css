@@ -1,0 +1,35 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.App {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: min-content auto auto;
+    grid-template-areas:
+        "Header Nav"
+        "Sidebar Sidebar"
+        "Content Content";
+}
+
+@media only screen and (min-width: 768px) {
+    .App {
+        font-size: 130%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 25% 75%;
+        grid-template-rows: auto;
+        grid-template-areas:
+            "Header Header"
+            "Nav Nav"
+            "Sidebar Content";
+    }
+}

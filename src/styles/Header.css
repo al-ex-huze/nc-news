@@ -1,0 +1,28 @@
+.Header {
+    grid-area: Header;
+    width: 100%;
+}
+
+.Header__logo-main-1 {
+    margin-top: 0;
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+}
+
+.Header__logo-main-2 {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .Header__logo-main-2 {
+        display: flex;
+        justify-content: center;
+        margin-left: 0;
+        width: 100%;    
+    }
+
+    .Header__logo-main-1 {
+        display: none;
+    } 
+}

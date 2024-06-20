@@ -1,0 +1,90 @@
+/* DARKEST rgb(13, 17, 23) - #0D1117 ; 
+DARKER - rgb(22, 27, 34) - #161B22 ; 
+SPACE CADET -  - #2A2D43 ; 
+DELFT -  - #414361 ; 
+PRS DARKER DARK -  - #11212F ; 
+PRUSSIAN DARKER -  - #0B263B ; 
+PRUSSIAN - rgb(0, 49, 83) - #003153 ; 
+TRADEWIND rgb(82, 180, 173) - #52b4ad ; 
+TRADEWIND DARKER - rgb(43, 95, 91) - #2b5f5b ; 
+TIMBERWOLF -  - #C9C5BA ; 
+TEA ROSE -  - #EBBAB9 ; 
+*/
+
+@font-face {
+    font-family: "Aboreto";
+    src: url("/src/assets/fonts/Aboreto.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Gotu";
+    src: url("/src/assets/fonts/Gotu.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Sacramento";
+    src: url("/src/assets/fonts/Sacramento.ttf") format("truetype");
+}
+
+.aboreto-regular {
+    font-family: "Aboreto", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.gotu-regular {
+    font-family: "Gotu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.sacramento-regular {
+    font-family: "Sacramento", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    font-family: "Gotu", "Roboto", sans-serif;
+    line-height: 1.5;
+    font-weight: 100;
+
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #0D1117;
+
+    font-size: 0.9em;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 300px;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 3em;
+    line-height: 1.1;
+}
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #10141A;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+button:hover {
+    border-color: #ffffff;
+    box-shadow: 0 0px #161B22, 0 0 10px #161B22, 0 0 10px #161B22;
+}
