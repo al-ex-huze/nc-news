@@ -20,9 +20,9 @@ export const getArticleById = (article_id) => {
     });
 };
 
-export const getCommentsByArticleId = (article_id) => {
+export const getCommentsByArticleId = (article_id, limit, pageNumber) => {
     return newsApi
-        .get(`/api/articles/${article_id}/comments`)
+        .get(`/api/articles/${article_id}/comments`, { params: { limit: limit, p: pageNumber}})
         .then((response) => {
             return response.data.comments;
         });

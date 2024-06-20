@@ -7,6 +7,10 @@ import ArticlesSingleComments from "./Articles-Single-Comments";
 const ArticlesSingle = () => {
     const [articleComments, setArticleComments] = useState([]);
 
+    const limit = 5;
+    const [pageNumber, setPageNumber] = useState(1);
+    const [totalCount, setTotalCount] = useState(0);
+
     return (
         <>
             <div className="Sidebar">
@@ -14,8 +18,13 @@ const ArticlesSingle = () => {
             </div>
             <div className="Content">
                 <ArticlesSingleCard />
-                
+
                 <ArticlesSingleComments
+                    limit={limit}
+                    pageNumber={pageNumber}
+                    setPageNumber={setPageNumber}
+                    totalCount={totalCount}
+                    setTotalCount={setTotalCount}
                     articleComments={articleComments}
                     setArticleComments={setArticleComments}
                 />

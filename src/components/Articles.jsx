@@ -3,7 +3,6 @@ import { useSearchParams } from "react-router-dom";
 
 import ArticlesList from "./Articles-List";
 import ArticlesSidebar from "./Articles-Sidebar";
-import ArticlesSidebarSort from "./Articles-Sidebar-Sort";
 
 const Articles = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -13,12 +12,6 @@ const Articles = () => {
     const [topicFilter, setTopicFilter] = useState(topicQuery);
     const [sortByQuery, setSortByQuery] = useState("");
     const [sortByIsDesc, setSortByIsDesc] = useState(false);
-
-    const [sortByArr, setSortByArr] = useState([
-        "created_at",
-        "comment_count",
-        "votes",
-    ]);
 
     const limit = 5;
     const [pageNumber, setPageNumber] = useState(1);
@@ -33,18 +26,13 @@ const Articles = () => {
         <>
             <div className="Sidebar">
                 <ArticlesSidebar
-                setPageNumber={setPageNumber}
+                    setPageNumber={setPageNumber}
                     setTopicFilter={setTopicFilter}
+                    sortByQuery={sortByQuery}
                     setSortByQuery={setSortByQuery}
                     sortByIsDesc={sortByIsDesc}
                     setSortByIsDesc={setSortByIsDesc}
-                />
-                <ArticlesSidebarSort
-                    sortByArr={sortByArr}
-                    setSortByArr={setSortByArr}
-                    sortByIsDesc={sortByIsDesc}
-                    setSortByIsDesc={setSortByIsDesc}
-                    setSortByQuery={setSortByQuery}
+                    topicQuery={topicQuery}
                 />
             </div>
             <div className="Content">

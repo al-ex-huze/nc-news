@@ -4,26 +4,48 @@ import { useParams } from "react-router-dom";
 import ArticlesSingleAddComment from "./Articles-Single-Add-Comment";
 import ArticlesSingleCommentsCards from "./Articles-Single-Comments-Cards";
 
+import { TiChevronLeftOutline, TiChevronRightOutline } from "react-icons/ti";
+
 import { getCommentsByArticleId } from "../api";
 
-const ArticlesSingleComments = ({ articleComments, setArticleComments }) => {
+const ArticlesSingleComments = ({
+    limit,
+    pageNumber,
+    setPageNumber,
+    totalCount,
+    setTotalCount,
+    articleComments,
+    setArticleComments,
+}) => {
     const { article_id } = useParams();
 
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         setIsLoading(true);
-        getCommentsByArticleId(article_id)
+        getCommentsByArticleId(article_id, limit, pageNumber)
             .then((comments) => {
                 setArticleComments(comments);
+                comments.length === 0
+                    ? setTotalCount(0)
+                    : setTotalCount(comments[0].total_count);
                 setIsLoading(false);
             })
             .catch((error) => {
                 console.log(error);
             });
-    }, []);
+    }, [limit, pageNumber]);
+
+    const handlePageLeft = () => {
+        if (pageNumber > 1) setPageNumber(pageNumber - 1);
+    };
+
+    const handlePageRight = () => {
+        if (pageNumber < totalCount / limit) setPageNumber(pageNumber + 1);
+    };
 
     if (isLoading) return <p>Loading Comments</p>;
+    if (articleComments.length === 0) return <p>No Comments Yet</p>;
     return (
         <>
             <ArticlesSingleAddComment
@@ -40,6 +62,31 @@ const ArticlesSingleComments = ({ articleComments, setArticleComments }) => {
                     );
                 })}
             </ul>
+            <div className="Content__pagination-container">
+                <ul>
+                    <li>
+                        <button
+                            className="Content__pagination-button"
+                            onClick={handlePageLeft}
+                        >
+                            <TiChevronLeftOutline />
+                        </button>
+                    </li>
+                    <li>
+                        <div className="Content__pagination-micro-card">
+                            Page {pageNumber} of {Math.ceil(totalCount / limit)}
+                        </div>
+                    </li>
+                    <li>
+                        <button
+                            className="Content__pagination-button"
+                            onClick={handlePageRight}
+                        >
+                            <TiChevronRightOutline />
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </>
     );
 };
