@@ -18,6 +18,7 @@ const Articles = ({ showSortBy, setShowSortBy }) => {
     const [totalCount, setTotalCount] = useState(0);
 
     useEffect(() => {
+        setPageNumber(1);
         setTopicFilter(topicQuery);
     }, [topicQuery]);
 
