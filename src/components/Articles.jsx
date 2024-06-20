@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import ArticlesList from "./Articles-List";
 import ArticlesSidebar from "./Articles-Sidebar";
 
-const Articles = ( { showSortBy, setShowSortBy } ) => {
+const Articles = ({ showSortBy, setShowSortBy }) => {
     const [searchParams, setSearchParams] = useSearchParams();
     const topicQuery = searchParams.get("topic");
     const [articles, setArticles] = useState([]);
@@ -16,7 +16,6 @@ const Articles = ( { showSortBy, setShowSortBy } ) => {
     const limit = 5;
     const [pageNumber, setPageNumber] = useState(1);
     const [totalCount, setTotalCount] = useState(0);
-
 
     useEffect(() => {
         setTopicFilter(topicQuery);

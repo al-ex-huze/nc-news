@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ArticlesListCards = ( { article }) => {
-
+const ArticlesListCards = ({ article }) => {
     return (
         <li key={article.article_id}>
             <Link to={`/articles/${article.article_id}`}>
@@ -17,6 +16,6 @@ const ArticlesListCards = ( { article }) => {
             </Link>
         </li>
     );
-}
+};
 
-export default ArticlesListCards
+export default ArticlesListCards;

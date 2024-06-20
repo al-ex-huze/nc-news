@@ -7,13 +7,11 @@ import { getTopics } from "../api";
 
 const ArticlesSidebar = ({
     setPageNumber,
-    setTopicFilter,
     sortByQuery,
     setSortByQuery,
     sortByIsDesc,
     setSortByIsDesc,
     showSortBy,
-    topicQuery,
 }) => {
     const [topics, setTopics] = useState([]);
     const [isLoading, setIsLoading] = useState(true);

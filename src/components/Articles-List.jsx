@@ -60,7 +60,10 @@ const ArticlesList = ({
             <div className="Content__pagination-container">
                 <ul>
                     <li>
-                        <button className="Content__pagination-button" onClick={handlePageLeft}>
+                        <button
+                            className="Content__pagination-button"
+                            onClick={handlePageLeft}
+                        >
                             <TiChevronLeftOutline />
                         </button>
                     </li>
@@ -70,7 +73,10 @@ const ArticlesList = ({
                         </div>
                     </li>
                     <li>
-                        <button className="Content__pagination-button" onClick={handlePageRight}>
+                        <button
+                            className="Content__pagination-button"
+                            onClick={handlePageRight}
+                        >
                             <TiChevronRightOutline />
                         </button>
                     </li>

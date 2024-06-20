@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ArticlesSidebarTopics = ({ setPageNumber, topics }) => {
+const ArticlesSidebarTopics = ({ topics }) => {
     return (
         <div className="Sidebar__topics">
             <div className="Sidebar__micro-card">Topics</div>

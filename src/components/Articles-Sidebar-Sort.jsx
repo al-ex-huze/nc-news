@@ -4,16 +4,16 @@ import { TiArrowDownOutline, TiArrowUpOutline } from "react-icons/ti";
 
 const ArticlesSidebarSort = ({
     sortByArr,
-    setSortByArr,
     sortByIsDesc,
     setSortByIsDesc,
-    sortByQuery,
     setSortByQuery,
 }) => {
+    const [sortQueryDisplay, setSortQueryDisplay] = useState({
+        created_at: "Date",
+        comment_count: "Comments",
+        votes: "Votes",
+    });
 
-    const [sortQueryDisplay, setSortQueryDisplay] = useState({ "created_at": "Date", "comment_count": "Comments", "votes": "Votes" });
-
-    
     const handleSortToggle = () => {
         setSortByIsDesc((currentSort) => {
             return currentSort === true ? false : true;
