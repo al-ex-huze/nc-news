@@ -12,7 +12,7 @@ const Nav = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/articles">
+                        <Link to="/articles/?topic=all">
                             <button className="Nav__button">Articles</button>
                         </Link>
                     </li>

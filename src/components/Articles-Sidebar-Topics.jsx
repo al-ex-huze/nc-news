@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 const ArticlesSidebarTopics = ({ setPageNumber, topics }) => {
     return (
         <div className="Sidebar__topics">
+            <div className="Sidebar__micro-card">Topics</div>
             <ul>
                 <li>
-                    <Link to="/articles/">
+                    <Link to="/articles/?topic=all">
                         <button className="Sidebar__button">All</button>
                     </Link>
                 </li>

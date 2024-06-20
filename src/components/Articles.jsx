@@ -19,7 +19,11 @@ const Articles = () => {
 
     useEffect(() => {
         setPageNumber(1);
-        setTopicFilter(topicQuery);
+        if (topicQuery === "all") {
+            setTopicFilter("");
+        } else {
+            setTopicFilter(topicQuery);
+        }
     }, [topicQuery]);
 
     return (
