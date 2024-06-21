@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { TiCancel, TiTrash } from "react-icons/ti";
 import { UserContext } from "../contexts/User-Context";
 import { deleteArticleComment } from "../api";
+import { timeAgo } from "../utils/timeAgo";
 
 const ArticlesSingleCommentsCards = ({ comment }) => {
     const { userLoggedIn, setUserLoggedIn } = useContext(UserContext);
@@ -36,7 +37,7 @@ const ArticlesSingleCommentsCards = ({ comment }) => {
         <li key={comment.comment_id}>
             <div className="Content__single-comment-card">
                 <p>{comment.body}</p>
-                {comment.created_at}
+                {timeAgo(comment.created_at)}
                 <button>By {comment.author}</button>
                 <div className="Content__micro-card-container">
                     {comment.votes} Votes

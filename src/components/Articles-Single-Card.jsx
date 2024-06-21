@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { TiThumbsDown, TiThumbsUp, TiCancel } from "react-icons/ti";
 import { UserContext } from "../contexts/User-Context";
 import { getArticleById, patchArticleVotes } from "../api";
+import { formatDate } from "../utils/formatDate";
 
 import ErrorComponent from "./Error-Component";
 
@@ -69,17 +70,25 @@ const ArticlesSingleCard = ({
     if (isLoading) return <p>Loading Article</p>;
     return (
         <div className="Content__single-card">
-            <h3>{singleArticle.title}</h3>
-            <button>
-                <h3>By {singleArticle.author}</h3>
-            </button>
-            <button>
-                <h3>In {singleArticle.topic}</h3>
-            </button>
-            <p>{singleArticle.body}</p>
+            <div className="Content__single-card-micro-container">
+                <h3>{singleArticle.title}</h3>
+            </div>
+            <div className="Content__single-card-micro-container">
+                <p>{singleArticle.body}</p>
+            </div>
             <img src={singleArticle.article_img_url} alt="Article Image" />
-            <h3>{singleArticle.created_at}</h3>
-            <div className="Content__micro-card-container">
+            <div className="Content__single-card-micro-container">
+                <button>
+                    <h3>By {singleArticle.author}</h3>
+                </button>
+                <button>
+                    <h3>In {singleArticle.topic}</h3>
+                </button>
+            </div>
+            <div className="Content__single-card-micro-container">
+                <h3>{formatDate(singleArticle.created_at)}</h3>
+            </div>
+            <div className="Content__single-card-vote-micro-container">
                 <button aria-label="Down Vote" onClick={handleDownVote}>
                     <TiThumbsDown />
                 </button>
