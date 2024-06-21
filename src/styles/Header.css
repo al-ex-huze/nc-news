@@ -15,9 +15,13 @@
 }
 
 @media only screen and (min-width: 768px) {
-    .Header__logo-main-2 {
+    .Header {
         display: flex;
-        justify-content: center;
+        justify-self: center;
+        width: 80%;
+    }
+    .Header__logo-main-2 {
+        display: block;
         margin-left: 0;
         width: 100%;    
     }
