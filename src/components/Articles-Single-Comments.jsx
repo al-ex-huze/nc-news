@@ -11,6 +11,7 @@ import { TiChevronLeftOutline, TiChevronRightOutline } from "react-icons/ti";
 import { getCommentsByArticleId } from "../api";
 
 const ArticlesSingleComments = ({
+    singleArticleError,
     limit,
     pageNumber,
     setPageNumber,
@@ -47,9 +48,20 @@ const ArticlesSingleComments = ({
         if (pageNumber < totalCount / limit) setPageNumber(pageNumber + 1);
     };
 
+    if (singleArticleError) return null;
     if (commentsError) return <ErrorComponent error={commentsError} />;
     if (isLoading) return <p>Loading Comments</p>;
-    if (articleComments.length === 0) return <p>No Comments Yet</p>;
+    if (articleComments.length === 0) {
+        return (
+            <>
+                <p>No Comments Yet</p>
+                <ArticlesSingleAddComment
+                    articleComments={articleComments}
+                    setArticleComments={setArticleComments}
+                />
+            </>
+        );
+    }
     return (
         <>
             <ArticlesSingleAddComment

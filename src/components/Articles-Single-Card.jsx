@@ -6,8 +6,11 @@ import { getArticleById, patchArticleVotes } from "../api";
 
 import ErrorComponent from "./Error-Component";
 
-const ArticlesSingleCard = ({ setShowSortBy }) => {
-    const [singleArticleError, setSingleArticleError] = useState(null);
+const ArticlesSingleCard = ({
+    singleArticleError,
+    setSingleArticleError,
+    setShowSortBy,
+}) => {
     const [voteError, setVoteError] = useState(null);
 
     const [isLoading, setIsLoading] = useState(true);

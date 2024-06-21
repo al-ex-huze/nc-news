@@ -53,6 +53,10 @@
     background-color: #10141A;
 }
 
+.Content__single-card p {
+    text-align: justify;
+}
+
 .Content__comments {
     margin: 0;
 }
@@ -66,6 +70,10 @@
     font-weight: 500;
     font-family: inherit;
     background-color: #10141A;
+}
+
+.Content__single-comment-card p {
+    text-align: justify;
 }
 
 .Content__micro-card-container {

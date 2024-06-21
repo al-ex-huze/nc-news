@@ -4,9 +4,8 @@ import ArticlesSidebar from "./Articles-Sidebar";
 import ArticlesSingleCard from "./Articles-Single-Card";
 import ArticlesSingleComments from "./Articles-Single-Comments";
 
-
 const ArticlesSingle = ({ setShowSortBy }) => {
-
+    const [singleArticleError, setSingleArticleError] = useState(null);
     const [articleComments, setArticleComments] = useState([]);
 
     const limit = 5;
@@ -19,9 +18,14 @@ const ArticlesSingle = ({ setShowSortBy }) => {
                 <ArticlesSidebar />
             </div>
             <div className="Content">
-                <ArticlesSingleCard setShowSortBy={setShowSortBy} />
+                <ArticlesSingleCard
+                    singleArticleError={singleArticleError}
+                    setSingleArticleError={setSingleArticleError}
+                    setShowSortBy={setShowSortBy}
+                />
 
                 <ArticlesSingleComments
+                    singleArticleError={singleArticleError}
                     limit={limit}
                     pageNumber={pageNumber}
                     setPageNumber={setPageNumber}
