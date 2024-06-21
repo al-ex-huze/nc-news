@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 
 const ArticlesSidebarTopics = ({ topics }) => {
+    
     return (
+        
         <div className="Sidebar__topics">
             <div className="Sidebar__micro-card">Topics</div>
             <ul>
