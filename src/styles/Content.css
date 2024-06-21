@@ -37,6 +37,12 @@
     width: 100%;
 }
 
+.Content__list-card-micro-container {
+    text-align: justify;
+    display: flex;
+    justify-content: space-between;
+}
+
 .Content img {
     width: 256px;
     height: auto;
@@ -51,6 +57,11 @@
     font-weight: 500;
     font-family: inherit;
     background-color: #10141A;
+}
+
+.Content__single-card-micro-container {
+    display: flex;
+    justify-content: center;
 }
 
 .Content__single-card p {
@@ -76,7 +87,7 @@
     text-align: justify;
 }
 
-.Content__micro-card-container {
+.Content__single-card-vote-micro-container {
     display: flex;
     justify-content: center;
 }

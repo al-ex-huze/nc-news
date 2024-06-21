@@ -23,13 +23,15 @@
     src: url("/src/assets/fonts/Roboto-Thin.ttf") format("truetype");
 }
 
-#root, html {
+
+html {
     color: #ffffff;
+    display: flex;
+    justify-content: center;
     width: 100%;
     margin: 0;
     padding: 0;
     text-align: center;
-
     font-family:  "Gotu", "Roboto", sans-serif;
     color: #ffffff;
     line-height: 1.5;
@@ -38,7 +40,6 @@
     height: auto;
     color-scheme: dark;
     background-color: #0D1117;
-
     font-size: 1em;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -49,10 +50,13 @@
 body {
     color: #ffffff;
     margin: 0;
-    display: flex;
-    place-items: center;
+    max-width: 1280px;
     width: 100%;
     height: auto;
+}
+
+root {
+
 }
 
 a {
