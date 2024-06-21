@@ -40,7 +40,9 @@ const ArticlesSingleCard = ({ setShowSortBy }) => {
                 .then(userLoggedIn.votedOnArticle.push(article_id))
                 .catch((error) => {
                     setOptimisticVotes(singleArticle.votes);
-                    setVoteError(" Vote Not Registered - Something Went Wrong ");
+                    setVoteError(
+                        " Vote Not Registered - Something Went Wrong "
+                    );
                 });
         }
     };
@@ -52,12 +54,15 @@ const ArticlesSingleCard = ({ setShowSortBy }) => {
                 .then(userLoggedIn.votedOnArticle.push(article_id))
                 .catch((error) => {
                     setOptimisticVotes(singleArticle.votes);
-                    setVoteError(" Vote Not Registered - Something Went Wrong ");
+                    setVoteError(
+                        " Vote Not Registered - Something Went Wrong "
+                    );
                 });
         }
     };
 
-    if (singleArticleError) return <ErrorComponent error={singleArticleError} />
+    if (singleArticleError)
+        return <ErrorComponent error={singleArticleError} />;
     if (isLoading) return <p>Loading Article</p>;
     return (
         <div className="Content__single-card">
@@ -69,16 +74,16 @@ const ArticlesSingleCard = ({ setShowSortBy }) => {
                 <h3>In {singleArticle.topic}</h3>
             </button>
             <p>{singleArticle.body}</p>
-            <img src={singleArticle.article_img_url} />
+            <img src={singleArticle.article_img_url} alt="Article Image" />
             <h3>{singleArticle.created_at}</h3>
             <div className="Content__micro-card-container">
-                <button onClick={handleDownVote}>
+                <button aria-label="Down Vote" onClick={handleDownVote}>
                     <TiThumbsDown />
                 </button>
                 <div className="Content__micro-card">
                     {optimisticVotes} Votes
                 </div>
-                <button onClick={handleUpVote}>
+                <button aria-label="Up Vote" onClick={handleUpVote}>
                     <TiThumbsUp />
                 </button>
             </div>
