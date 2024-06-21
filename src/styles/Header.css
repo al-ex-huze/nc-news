@@ -6,8 +6,8 @@
 .Header__logo-main-1 {
     margin-top: 0;
     margin-left: 0;
-    width: 100%;
-    height: auto;
+    height: 90px;
+    width: auto;
 }
 
 .Header__logo-main-2 {
@@ -18,7 +18,7 @@
     .Header {
         display: flex;
         justify-self: center;
-        width: 80%;
+        width: 60%;
     }
     .Header__logo-main-2 {
         display: block;
