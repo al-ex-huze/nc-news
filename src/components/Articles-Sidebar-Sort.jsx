@@ -34,15 +34,12 @@ const ArticlesSidebarSort = ({
         <>
             <div className="Sidebar__sort-by">
                 <div className="Sidebar__dropdown">
-                    {/* <div className="Sidebar__micro-card"> */}
                     <button
                         className="Sidebar__dropdown-toggle"
                         onClick={toggleDropdown}
                     >
                         Sort By
                     </button>
-                    {/* </div> */}
-
                     {showDropdown && (
                         <ul>
                             {sortByArr.map((sortByEle) => {
