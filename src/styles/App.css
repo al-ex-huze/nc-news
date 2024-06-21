@@ -13,7 +13,7 @@ a {
 .App {
     width: 100%;
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 30% 70%;
     grid-template-rows: min-content auto auto;
     grid-template-areas:
         "Header Nav"
