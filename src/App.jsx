@@ -12,6 +12,7 @@ import Users from "./components/Users";
 
 import RouteError from "./components/Route-Error";
 
+import "../src/styles/index.css"
 import "../src/styles/App.css";
 import "../src/styles/Header.css";
 import "../src/styles/Nav.css";

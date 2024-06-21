@@ -1,5 +1,4 @@
 .Header {
-    color: #ffffff;
     grid-area: Header;
     width: 100%;
 }
@@ -7,7 +6,7 @@
 .Header__logo-main-1 {
     margin-top: 0;
     margin-left: 0;
-    width: 110%;
+    width: 100%;
     height: auto;
 }
 
