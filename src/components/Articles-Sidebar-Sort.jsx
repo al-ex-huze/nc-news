@@ -43,6 +43,7 @@ const ArticlesSidebarSort = ({
                     })}
                     <li>
                         <button
+                            aria-label="Ascending/Descending"
                             className="Sidebar__query-button"
                             onClick={handleSortToggle}
                         >

@@ -47,7 +47,7 @@ const ArticlesSingleComments = ({
         if (pageNumber < totalCount / limit) setPageNumber(pageNumber + 1);
     };
 
-    if (commentsError) return <ErrorComponent error={commentsError} />
+    if (commentsError) return <ErrorComponent error={commentsError} />;
     if (isLoading) return <p>Loading Comments</p>;
     if (articleComments.length === 0) return <p>No Comments Yet</p>;
     return (
@@ -70,6 +70,7 @@ const ArticlesSingleComments = ({
                 <ul>
                     <li>
                         <button
+                            aria-label="Page Left"
                             className="Content__pagination-button"
                             onClick={handlePageLeft}
                         >
@@ -83,6 +84,7 @@ const ArticlesSingleComments = ({
                     </li>
                     <li>
                         <button
+                            aria-label="Page Right"
                             className="Content__pagination-button"
                             onClick={handlePageRight}
                         >
