@@ -6,8 +6,8 @@
 .Header__logo-main-1 {
     margin-top: 0;
     margin-left: 0;
-    height: 90px;
-    width: auto;
+    width: 100%;
+    height: auto;
 }
 
 .Header__logo-main-2 {
