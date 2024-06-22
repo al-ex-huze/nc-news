@@ -11,6 +11,12 @@ const ArticlesSingleCommentsCards = ({ comment }) => {
     const [isDeleted, setIsDeleted] = useState(false);
     const [error, setError] = useState(null);
 
+    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+
+    const toggleDeleteConfirm = () => {
+        setShowDeleteConfirm(!showDeleteConfirm);
+    };
+
     const handleDelete = () => {
         setIsDeleting(true);
         deleteArticleComment(comment.comment_id)
@@ -51,11 +57,19 @@ const ArticlesSingleCommentsCards = ({ comment }) => {
                     {userLoggedIn.username === comment.author ? (
                         <button
                             className="Content__delete-button"
-                            onClick={handleDelete}
+                            onClick={toggleDeleteConfirm}
                         >
-                            Delete
+                            Delete Comment
                         </button>
                     ) : null}
+                    {showDeleteConfirm && (
+                        <button
+                            className="Content__delete-confirm-button"
+                            onClick={handleDelete}
+                        >
+                            Confirm Delete
+                        </button>
+                    )}
                 </div>
             </div>
         </li>
