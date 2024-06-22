@@ -92,15 +92,17 @@ const ArticlesSingleCard = ({
                 <h3>{formatDate(singleArticle.created_at)}</h3>
             </div>
             <div className="Content__single-card-vote-micro-container">
+                {userLoggedIn.username !== undefined ?
                 <button aria-label="Down Vote" onClick={handleDownVote}>
                     <TiThumbsDown />
-                </button>
+                </button> : null}
                 <div className="Content__micro-card">
                     {optimisticVotes} Votes
                 </div>
+                {userLoggedIn.username !== undefined ?
                 <button aria-label="Up Vote" onClick={handleUpVote}>
                     <TiThumbsUp />
-                </button>
+                </button> : null}
             </div>
             {voteError ? (
                 <p>

@@ -36,13 +36,12 @@ const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
                 setError(" Post Unsuccessful - Something Went Wrong ");
             });
     };
-
     if (userLoggedIn.username === undefined)
         return (
             <Link to="/users">
                 <div className="Content__comment-form-container">
                     <button>
-                        <h3>Login or Register to Comment</h3>
+                        <p>Login/Register to Comment & Vote</p>
                     </button>
                 </div>
             </Link>
@@ -51,23 +50,22 @@ const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
     return (
         <div className="Content__comment-form-container">
             <form onSubmit={handleCommentSubmit}>
-                <h3>Add New Comment</h3>
-                <ul>
-                    <li>Logged in as {userLoggedIn.username}</li>
-                    <li>
-                        <label>
-                            <input
-                                className="Content__comment-input"
-                                required
-                                placeholder="Type comment..."
-                                value={bodyInput}
-                                onChange={(event) => {
-                                    setBodyInput(event.target.value);
-                                }}
-                            />
-                        </label>
-                    </li>
-                </ul>
+                <h3>New Comment</h3>
+                <div className="Content__single-card-comment-micro-container">
+                    <img src={userLoggedIn.avatar_url} />
+                    <p>{userLoggedIn.username}</p>
+                </div>
+                <label>
+                    <input
+                        className="Content__comment-input"
+                        required
+                        placeholder="Type comment..."
+                        value={bodyInput}
+                        onChange={(event) => {
+                            setBodyInput(event.target.value);
+                        }}
+                    />
+                </label>
                 <button type="submit">Post</button>
             </form>
             {error ? (
