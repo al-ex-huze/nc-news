@@ -93,7 +93,7 @@ const UsersSingleCard = () => {
                             className="Content__delete-button"
                             onClick={toggleDeleteConfirm}
                         >
-                            Delete User
+                            Delete Account
                         </button>
                     ) : null}
                     {showDeleteConfirm && (
