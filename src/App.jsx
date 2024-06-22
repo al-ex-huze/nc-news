@@ -6,9 +6,9 @@ import Header from "./components/Header";
 import Nav from "./components/Nav";
 
 import Home from "./components/Home";
-import Articles from "./components/Articles";
-import ArticlesSingle from "./components/Articles-Single";
-import Users from "./components/Users";
+import Articles from "./components/articles/Articles";
+import ArticlesSingle from "./components/articles/Articles-Single";
+import Users from "./components/users/Users";
 
 import RouteError from "./components/Route-Error";
 

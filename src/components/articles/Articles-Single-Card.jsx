@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { TiThumbsDown, TiThumbsUp, TiCancel } from "react-icons/ti";
-import { UserContext } from "../contexts/User-Context";
-import { getArticleById, patchArticleVotes } from "../api";
-import { formatDate } from "../utils/formatDate";
+import { UserContext } from "../../contexts/User-Context";
+import { getArticleById, patchArticleVotes } from "../../api";
+import { formatDate } from "../../utils/formatDate";
 
-import ErrorComponent from "./Error-Component";
+import ErrorComponent from "../Error-Component";
 
 const ArticlesSingleCard = ({
     singleArticleError,

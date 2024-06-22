@@ -4,11 +4,11 @@ import { useParams } from "react-router-dom";
 import ArticlesSingleAddComment from "./Articles-Single-Add-Comment";
 import ArticlesSingleCommentsCards from "./Articles-Single-Comments-Cards";
 
-import ErrorComponent from "./Error-Component";
+import ErrorComponent from "../Error-Component";
 
 import { TiChevronLeftOutline, TiChevronRightOutline } from "react-icons/ti";
 
-import { getCommentsByArticleId } from "../api";
+import { getCommentsByArticleId } from "../../api";
 
 const ArticlesSingleComments = ({
     singleArticleError,

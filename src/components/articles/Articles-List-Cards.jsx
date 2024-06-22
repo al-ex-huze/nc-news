@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { timeAgo } from "../utils/timeAgo";
+import { timeAgo } from "../../utils/timeAgo";
 
 const ArticlesListCards = ({ article }) => {
     return (

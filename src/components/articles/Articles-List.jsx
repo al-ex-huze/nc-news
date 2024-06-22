@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { getArticles } from "../api";
+import { getArticles } from "../../api";
 
 import { TiChevronLeftOutline, TiChevronRightOutline } from "react-icons/ti";
 
-import ErrorComponent from "./Error-Component";
+import ErrorComponent from "../Error-Component";
 
 import ArticlesListCards from "./Articles-List-Cards";
 

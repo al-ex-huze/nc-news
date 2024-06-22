@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { TiCancel } from "react-icons/ti";
-import { UserContext } from "../contexts/User-Context";
-import { postArticleComment } from "../api";
+import { UserContext } from "../../contexts/User-Context";
+import { postArticleComment } from "../../api";
 
 const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
     const { article_id } = useParams();

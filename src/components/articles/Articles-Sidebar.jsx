@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import ArticlesSidebarTopics from "./Articles-Sidebar-Topics";
 import ArticlesSidebarSort from "./Articles-Sidebar-Sort";
 
-import ErrorComponent from "./Error-Component";
+import ErrorComponent from "../Error-Component";
 
-import { getTopics } from "../api";
+import { getTopics } from "../../api";
 
 const ArticlesSidebar = ({
     setPageNumber,
