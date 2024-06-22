@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import ArticlesList from "./Articles-List";
 import ArticlesSidebar from "./Articles-Sidebar";
+import ArticlesList from "./Articles-List";
 
 const Articles = ({ showSortBy, setShowSortBy }) => {
     const [searchParams, setSearchParams] = useSearchParams();
