@@ -53,7 +53,11 @@ const UsersSingleCard = () => {
     };
 
     const handleLoginUser = () => {
-        setUserLoggedIn({ username: singleUser.username, votedOnArticle: [] });
+        setUserLoggedIn({
+            username: singleUser.username,
+            avatar_url: singleUser.avatar_url,
+            votedOnArticle: [],
+        });
     };
 
     if (singleUserError) return <ErrorComponent error={singleUserError} />;
@@ -89,17 +93,16 @@ const UsersSingleCard = () => {
                             className="Content__delete-button"
                             onClick={toggleDeleteConfirm}
                         >
-                            Delete User
+                            Delete Account
                         </button>
                     ) : null}
                     {showDeleteConfirm && (
-
-                            <button
-                                className="Content__delete-confirm-button"
-                                onClick={handleDeleteUser}
-                            >
-                                Confirm Delete
-                            </button>
+                        <button
+                            className="Content__delete-confirm-button"
+                            onClick={handleDeleteUser}
+                        >
+                            Confirm Delete
+                        </button>
                     )}
                     {deleteUserError ? (
                         <p>
