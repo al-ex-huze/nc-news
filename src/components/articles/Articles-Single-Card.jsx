@@ -36,31 +36,35 @@ const ArticlesSingleCard = ({
     }, [article_id]);
 
     const handleDownVote = () => {
-        if (!userLoggedIn.votedOnArticle.includes(article_id)) {
-            setOptimisticVotes(optimisticVotes - 1);
-            setVoteError(null);
-            patchArticleVotes(-1, singleArticle.article_id)
-                .then(userLoggedIn.votedOnArticle.push(article_id))
-                .catch((error) => {
-                    setOptimisticVotes(singleArticle.votes);
-                    setVoteError(
-                        " Vote Not Registered - Something Went Wrong "
-                    );
-                });
+        if (userLoggedIn.username !== undefined) {
+            if (!userLoggedIn.votedOnArticle.includes(article_id)) {
+                setOptimisticVotes(optimisticVotes - 1);
+                setVoteError(null);
+                patchArticleVotes(-1, singleArticle.article_id)
+                    .then(userLoggedIn.votedOnArticle.push(article_id))
+                    .catch((error) => {
+                        setOptimisticVotes(singleArticle.votes);
+                        setVoteError(
+                            " Vote Not Registered - Something Went Wrong "
+                        );
+                    });
+            }
         }
     };
     const handleUpVote = () => {
-        if (!userLoggedIn.votedOnArticle.includes(article_id)) {
-            setOptimisticVotes(optimisticVotes + 1);
-            setVoteError(null);
-            patchArticleVotes(1, singleArticle.article_id)
-                .then(userLoggedIn.votedOnArticle.push(article_id))
-                .catch((error) => {
-                    setOptimisticVotes(singleArticle.votes);
-                    setVoteError(
-                        " Vote Not Registered - Something Went Wrong "
-                    );
-                });
+        if (userLoggedIn.username !== undefined) {
+            if (!userLoggedIn.votedOnArticle.includes(article_id)) {
+                setOptimisticVotes(optimisticVotes + 1);
+                setVoteError(null);
+                patchArticleVotes(1, singleArticle.article_id)
+                    .then(userLoggedIn.votedOnArticle.push(article_id))
+                    .catch((error) => {
+                        setOptimisticVotes(singleArticle.votes);
+                        setVoteError(
+                            " Vote Not Registered - Something Went Wrong "
+                        );
+                    });
+            }
         }
     };
 

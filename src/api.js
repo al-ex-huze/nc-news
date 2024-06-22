@@ -89,3 +89,9 @@ export const postNewUser = (body) => {
         return response.data.user;
     })
 }
+
+export const deleteUserByUsername = (username) => {
+    return newsApi.delete(`/api/users/${username}`).then((response) => {
+        return response.status === 204 ? true : false;
+    })
+}

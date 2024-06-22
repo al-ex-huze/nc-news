@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "./contexts/User-Context";
+
 
 import { Routes, Route } from "react-router-dom";
 
@@ -22,6 +24,7 @@ import "../src/styles/Sidebar.css";
 import "../src/styles/Content.css";
 
 function App() {
+    const { userLoggedIn, setUserLoggedIn } = useContext(UserContext);
     const [showSortBy, setShowSortBy] = useState(false);
 
     return (
