@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { TiCancel } from "react-icons/ti";
 import { UserContext } from "../../contexts/User-Context";
 import { postArticleComment } from "../../api";
@@ -37,6 +37,16 @@ const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
             });
     };
 
+    if (userLoggedIn.username === undefined)
+        return (
+            <Link to="/users">
+                <div className="Content__comment-form-container">
+                    <button>
+                        <h3>Login or Register to Comment</h3>
+                    </button>
+                </div>
+            </Link>
+        );
     if (isPosting) return <p>Please Wait</p>;
     return (
         <div className="Content__comment-form-container">
