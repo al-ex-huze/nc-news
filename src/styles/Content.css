@@ -140,6 +140,17 @@
     justify-content: end;
 }
 
+.Content__delete-button {
+    padding: 0.6em 1.2em;
+    width: fit-content;
+}
+
+.Content__delete-confirm-button {
+    background-color: #EB3A36;
+    padding: 0.6em 1.2em;
+    width: fit-content;
+}
+
 .Content__comment-form-container {
     margin: 1px;
     border-radius: 8px;

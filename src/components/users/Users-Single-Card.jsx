@@ -9,17 +9,19 @@ import ErrorComponent from "../Error-Component";
 
 const UsersSingleCard = () => {
     const { userLoggedIn, setUserLoggedIn } = useContext(UserContext);
-
+    const { username } = useParams();
     const [isLoading, setIsLoading] = useState(true);
-
     const [isDeleting, setIsDeleting] = useState(false);
     const [isDeleted, setIsDeleted] = useState(false);
     const [singleUserError, setSingleUserError] = useState(null);
     const [deleteUserError, setDeleteUserError] = useState(null);
-
-    const { username } = useParams();
-
     const [singleUser, setSingleUser] = useState([]);
+
+    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+
+    const toggleDeleteConfirm = () => {
+        setShowDeleteConfirm(!showDeleteConfirm);
+    };
 
     useEffect(() => {
         setIsLoading(true);
@@ -36,16 +38,18 @@ const UsersSingleCard = () => {
     const handleDeleteUser = () => {
         setIsDeleting(true);
         deleteUserByUsername(singleUser.username)
-        .then((confirmation) => {
-            if (confirmation) {
+            .then((confirmation) => {
+                if (confirmation) {
+                    setIsDeleting(false);
+                    setIsDeleted(true);
+                }
+            })
+            .catch((error) => {
                 setIsDeleting(false);
-                setIsDeleted(true);
-            }
-        })
-        .catch((error) => {
-            setIsDeleting(false);
-            setDeleteUserError(" Delete Unsuccessful - Something Went Wrong");
-        });
+                setDeleteUserError(
+                    " Delete Unsuccessful - Something Went Wrong"
+                );
+            });
     };
 
     const handleLoginUser = () => {
@@ -68,7 +72,6 @@ const UsersSingleCard = () => {
                     <p>{singleUser.name}</p>
                 </div>
                 <img src={singleUser.avatar_url} alt="User Avatar Image" />
-
                 <div className="Content__login-button-container">
                     {userLoggedIn.username !== singleUser.username ? (
                         <button
@@ -79,20 +82,30 @@ const UsersSingleCard = () => {
                         </button>
                     ) : null}
                 </div>
+
                 <div className="Content__delete-button-container">
                     {userLoggedIn.username === singleUser.username ? (
                         <button
                             className="Content__delete-button"
-                            onClick={handleDeleteUser}
+                            onClick={toggleDeleteConfirm}
                         >
-                            Delete
+                            Delete User
                         </button>
                     ) : null}
+                    {showDeleteConfirm && (
+
+                            <button
+                                className="Content__delete-confirm-button"
+                                onClick={handleDeleteUser}
+                            >
+                                Confirm Delete
+                            </button>
+                    )}
                     {deleteUserError ? (
-                <p>
-                    <TiCancel /> {deleteUserError} <TiCancel />
-                </p>
-            ) : null}
+                        <p>
+                            <TiCancel /> {deleteUserError} <TiCancel />
+                        </p>
+                    ) : null}
                 </div>
             </div>
         </>
