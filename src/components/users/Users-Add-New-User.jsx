@@ -29,7 +29,7 @@ const UsersAddNewUser = () => {
             navigate(`/users/${response.username}`);
         })
         .catch((error) => {
-            setRegisterError(" Post Unsuccessful - Something Went Wrong ");
+            setRegisterError(" Registration Was Unsuccessful - Something Went Wrong ");
         })
     }
     
