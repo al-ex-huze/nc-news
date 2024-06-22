@@ -83,3 +83,9 @@ export const getUserByUsername = (username) => {
         return response.data.user;
     })
 }
+
+export const postNewUser = (body) => {
+    return newsApi.post("/api/users", body).then((response) => {
+        return response.data.user;
+    })
+}

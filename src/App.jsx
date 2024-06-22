@@ -11,6 +11,8 @@ import ArticlesSingle from "./components/articles/Articles-Single";
 import Users from "./components/users/Users";
 import UsersSingle from "./components/users/Users-Single";
 
+import UsersRegister from "./components/users/Users-Register";
+
 import RouteError from "./components/Route-Error";
 
 import "../src/styles/App.css";
@@ -43,7 +45,7 @@ function App() {
                 />
                 <Route path="/users" element={<Users />} />
                 <Route path="/users/:username" element={<UsersSingle />} />
-
+                    <Route path="/users/register" element={<UsersRegister />} />
                 <Route path="*" element={<RouteError />} />
             </Routes>
         </div>
