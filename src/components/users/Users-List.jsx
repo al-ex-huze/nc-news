@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { getUsers } from "../../api";
 
 import ErrorComponent from "../Error-Component";
-import UsersListCards from "./Users-Lists-Cards";
+import UsersListCards from "./Users-List-Cards";
 
 const UsersList = ({ users, setUsers }) => {
     const [userListError, setUserListError] = useState(null);

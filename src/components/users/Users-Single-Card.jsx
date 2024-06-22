@@ -1,12 +1,21 @@
 import { useContext, useEffect, useState } from "react";
+import { TiCancel, TiTrash } from "react-icons/ti";
+import { UserContext } from "../../contexts/User-Context";
 import { useParams } from "react-router-dom";
 
-import { getUserByUsername } from "../../api";
+import { getUserByUsername, deleteUserByUsername } from "../../api";
 
 import ErrorComponent from "../Error-Component";
 
 const UsersSingleCard = () => {
+    const { userLoggedIn, setUserLoggedIn } = useContext(UserContext);
+
     const [isLoading, setIsLoading] = useState(true);
+
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [isDeleted, setIsDeleted] = useState(false);
+    const [singleUserError, setSingleUserError] = useState(null);
+    const [deleteUserError, setDeleteUserError] = useState(null);
 
     const { username } = useParams();
 
@@ -14,28 +23,80 @@ const UsersSingleCard = () => {
 
     useEffect(() => {
         setIsLoading(true);
-        getUserByUsername(username).then((user) => {
-            setSingleUser(user);
-            setIsLoading(false);
+        getUserByUsername(username)
+            .then((user) => {
+                setSingleUser(user);
+                setIsLoading(false);
+            })
+            .catch((error) => {
+                setSingleUserError(error);
+            });
+    }, [username]);
+
+    const handleDeleteUser = () => {
+        setIsDeleting(true);
+        deleteUserByUsername(singleUser.username)
+        .then((confirmation) => {
+            if (confirmation) {
+                setIsDeleting(false);
+                setIsDeleted(true);
+            }
         })
         .catch((error) => {
-            console.log(error)
-        })
-    }, [username]);
-    
+            setIsDeleting(false);
+            setDeleteUserError(" Delete Unsuccessful - Something Went Wrong");
+        });
+    };
+
+    const handleLoginUser = () => {
+        setUserLoggedIn({ username: singleUser.username, votedOnArticle: [] });
+    };
+
+    if (singleUserError) return <ErrorComponent error={singleUserError} />;
+    if (isDeleting)
+        return <div className="Content__single-card">Please Wait</div>;
+    if (isDeleted)
+        return <div className="Content__single-card">User Deleted</div>;
     if (isLoading) return <p>Loading User</p>;
     return (
-        <div className="Content__single-card">
-            <div className="Content__single-card-micro-container">
-                <h3>{singleUser.username}</h3>
-            </div>
-            <div className="Content__single-card-micro-container">
-                <p>{singleUser.name}</p>
-            </div>
-            <img src={singleUser.avatar_url} alt="User Avatar Image" />
-            </div>
+        <>
+            <div className="Content__single-card">
+                <div className="Content__single-card-micro-container">
+                    <h3>{singleUser.username}</h3>
+                </div>
+                <div className="Content__single-card-micro-container">
+                    <p>{singleUser.name}</p>
+                </div>
+                <img src={singleUser.avatar_url} alt="User Avatar Image" />
 
-    )
-}
+                <div className="Content__login-button-container">
+                    {userLoggedIn.username !== singleUser.username ? (
+                        <button
+                            className="Content__login-button"
+                            onClick={handleLoginUser}
+                        >
+                            Login
+                        </button>
+                    ) : null}
+                </div>
+                <div className="Content__delete-button-container">
+                    {userLoggedIn.username === singleUser.username ? (
+                        <button
+                            className="Content__delete-button"
+                            onClick={handleDeleteUser}
+                        >
+                            Delete
+                        </button>
+                    ) : null}
+                    {deleteUserError ? (
+                <p>
+                    <TiCancel /> {deleteUserError} <TiCancel />
+                </p>
+            ) : null}
+                </div>
+            </div>
+        </>
+    );
+};
 
 export default UsersSingleCard;

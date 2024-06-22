@@ -130,6 +130,11 @@
     background-color: #10141A;
 }
 
+.Content__login-button-container {
+    display: flex;
+    justify-content: start;
+}
+
 .Content__delete-button-container {
     display: flex;
     justify-content: end;

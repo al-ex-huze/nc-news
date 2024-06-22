@@ -22,7 +22,7 @@ const ArticlesSingleCommentsCards = ({ comment }) => {
             })
             .catch((error) => {
                 setIsDeleting(false);
-                setError(" Delete Unsuccessful - Try Refreshing the Page ");
+                setError(" Delete Unsuccessful - Something Went Wrong");
             });
     };
 
