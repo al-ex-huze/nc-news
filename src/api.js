@@ -71,3 +71,9 @@ export const getTopics = () => {
         return response.data.topics;
     });
 };
+
+export const getUsers = () => {
+    return newsApi.get("/api/users").then((response) => {
+        return response.data;
+    });
+};
