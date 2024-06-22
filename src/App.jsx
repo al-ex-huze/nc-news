@@ -9,6 +9,7 @@ import Home from "./components/Home";
 import Articles from "./components/articles/Articles";
 import ArticlesSingle from "./components/articles/Articles-Single";
 import Users from "./components/users/Users";
+import UsersSingle from "./components/users/Users-Single";
 
 import RouteError from "./components/Route-Error";
 
@@ -41,6 +42,7 @@ function App() {
                     element={<ArticlesSingle setShowSortBy={setShowSortBy} />}
                 />
                 <Route path="/users" element={<Users />} />
+                <Route path="/users/:username" element={<UsersSingle />} />
 
                 <Route path="*" element={<RouteError />} />
             </Routes>

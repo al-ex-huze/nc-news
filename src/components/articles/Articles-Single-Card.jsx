@@ -13,7 +13,6 @@ const ArticlesSingleCard = ({
     setShowSortBy,
 }) => {
     const [voteError, setVoteError] = useState(null);
-
     const [isLoading, setIsLoading] = useState(true);
 
     const { userLoggedIn, setUserLoggedIn } = useContext(UserContext);

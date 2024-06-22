@@ -20,7 +20,6 @@ const ArticlesListCards = ({ article }) => {
                             {article.votes} Votes
                         </div>
                     </div>
-
                     <img src={article.article_img_url} alt="Article Image" />
                     <div className="Content__list-card-micro-container">
                         <div className="Content__list-card-time">
