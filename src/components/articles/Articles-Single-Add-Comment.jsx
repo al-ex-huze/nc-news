@@ -39,7 +39,7 @@ const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
 
     if (isPosting) return <p>Please Wait</p>;
     return (
-        <div className="Content__comment-form">
+        <div className="Content__comment-form-container">
             <form onSubmit={handleCommentSubmit}>
                 <h3>Add New Comment</h3>
                 <ul>

@@ -135,7 +135,7 @@
     justify-content: end;
 }
 
-.Content__comment-form {
+.Content__comment-form-container {
     margin: 1px;
     border-radius: 8px;
     border: 1px solid transparent;
@@ -144,6 +144,16 @@
     font-weight: 500;
     font-family: inherit;
     background-color: #10141A;
+}
+
+.Content__comment-form-container input,
+textarea {
+    width: 80%;
+}
+
+.Content__new-user-form-container input,
+textarea {
+    width: 80%;
 }
 
 @media only screen and (min-width: 768px) {
