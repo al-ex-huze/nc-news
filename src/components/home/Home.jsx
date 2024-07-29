@@ -7,7 +7,6 @@ const Home = () => {
 
     return (
         <div className="Content">
-            Random Article
             <HomeList
                 homeArticles={homeArticles}
                 setHomeArticles={setHomeArticles}

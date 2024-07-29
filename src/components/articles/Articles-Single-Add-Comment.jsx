@@ -41,7 +41,7 @@ const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
             <Link to="/users">
                 <div className="Content__comment-form-container">
                     <button>
-                        <p>Login/Register to Comment & Vote</p>
+                        <p>Login or Register to Comment & Vote</p>
                     </button>
                 </div>
             </Link>
