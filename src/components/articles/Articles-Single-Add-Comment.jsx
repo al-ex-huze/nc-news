@@ -41,7 +41,7 @@ const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
             <Link to="/users">
                 <div className="Content__comment-form-container">
                     <button>
-                        <p>Login/Register to Comment & Vote</p>
+                        <p>Login or Register to Comment & Vote</p>
                     </button>
                 </div>
             </Link>
@@ -50,7 +50,7 @@ const ArticlesSingleAddComment = ({ articleComments, setArticleComments }) => {
     return (
         <div className="Content__comment-form-container">
             <form onSubmit={handleCommentSubmit}>
-                <h3>New Comment</h3>
+                <h3>Post Comment</h3>
                 <div className="Content__single-card-comment-micro-container">
                     <img src={userLoggedIn.avatar_url} />
                     <p>{userLoggedIn.username}</p>

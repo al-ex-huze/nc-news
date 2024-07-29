@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { TiCancel, TiTrash } from "react-icons/ti";
 import { UserContext } from "../../contexts/User-Context";
 import { deleteArticleComment } from "../../api";
@@ -44,7 +45,9 @@ const ArticlesSingleCommentsCards = ({ comment }) => {
             <div className="Content__single-comment-card">
                 <p>{comment.body}</p>
                 {timeAgo(comment.created_at)}
-                <button>By {comment.author}</button>
+                <Link to={`/users/${comment.author}`}>
+                    <button>By {comment.author}</button>
+                </Link>
                 <div className="Content__micro-card-container">
                     {comment.votes} Votes
                 </div>

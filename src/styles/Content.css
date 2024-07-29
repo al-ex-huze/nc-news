@@ -3,6 +3,7 @@
     box-sizing: border-box;
     width: 100%;
     padding: 0em 0.6em;
+    
 }
 
 .Content ul {
@@ -56,7 +57,7 @@
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #10141A;
+    background-color: #10141a;
 }
 
 .Content__single-card-micro-container {
@@ -80,7 +81,7 @@
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #10141A;
+    background-color: #10141a;
 }
 
 .Content__single-comment-card p {
@@ -99,7 +100,7 @@
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #10141A;
+    background-color: #10141a;
 }
 
 .Content__pagination-container {
@@ -127,7 +128,7 @@
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #10141A;
+    background-color: #10141a;
 }
 
 .Content__login-button-container {
@@ -146,7 +147,7 @@
 }
 
 .Content__delete-confirm-button {
-    background-color: #EB3A36;
+    background-color: #eb3a36;
     padding: 0.6em 1.2em;
     width: fit-content;
 }
@@ -159,13 +160,12 @@
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #10141A;
+    background-color: #10141a;
 }
 
 .Content__comment-form-container input,
 textarea {
     width: 80%;
-    
 }
 
 .Content__single-card-comment-micro-container img {

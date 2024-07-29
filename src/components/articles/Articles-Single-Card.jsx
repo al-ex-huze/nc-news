@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { TiThumbsDown, TiThumbsUp, TiCancel } from "react-icons/ti";
 import { UserContext } from "../../contexts/User-Context";
 import { getArticleById, patchArticleVotes } from "../../api";
@@ -81,28 +81,34 @@ const ArticlesSingleCard = ({
             </div>
             <img src={singleArticle.article_img_url} alt="Article Image" />
             <div className="Content__single-card-micro-container">
-                <button>
-                    <h3>By {singleArticle.author}</h3>
-                </button>
-                <button>
-                    <h3>In {singleArticle.topic}</h3>
-                </button>
+                {/* <button> */}
+                    <Link to={`/users/${singleArticle.author}`}>
+                        <button>By {singleArticle.author}</button>
+                    </Link>
+                {/* </button>
+                <button> */}
+                    <Link to={`/articles/?topic=${singleArticle.topic}`}>
+                        <button>In {singleArticle.topic}</button>
+                    </Link>
+                {/* </button> */}
             </div>
             <div className="Content__single-card-micro-container">
                 <h3>{formatDate(singleArticle.created_at)}</h3>
             </div>
             <div className="Content__single-card-vote-micro-container">
-                {userLoggedIn.username !== undefined ?
-                <button aria-label="Down Vote" onClick={handleDownVote}>
-                    <TiThumbsDown />
-                </button> : null}
+                {userLoggedIn.username !== undefined ? (
+                    <button aria-label="Down Vote" onClick={handleDownVote}>
+                        <TiThumbsDown />
+                    </button>
+                ) : null}
                 <div className="Content__micro-card">
                     {optimisticVotes} Votes
                 </div>
-                {userLoggedIn.username !== undefined ?
-                <button aria-label="Up Vote" onClick={handleUpVote}>
-                    <TiThumbsUp />
-                </button> : null}
+                {userLoggedIn.username !== undefined ? (
+                    <button aria-label="Up Vote" onClick={handleUpVote}>
+                        <TiThumbsUp />
+                    </button>
+                ) : null}
             </div>
             {voteError ? (
                 <p>
